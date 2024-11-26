@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tele Tech Electronics | Login</title>
+    <link rel="icon" href="./images/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+
+<body>
+    <div class="flex justify-center items-center h-dvh">
+        <div class="login-form flex">
+            <div class="banner-side flex justify-center items-center">
+                <img class="w-75" src="./images/logo.png" alt="logo">
+            </div>
+            <div class="controls-side flex flex-col p-6 h-full w-1/2 justify-between">
+                <h1 class="text-3xl text-[#0086B8]">Log In Now</h1>
+                <input type="email" name="email" id="email" placeholder="Enter your email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <div class="relative w-full">
+                    <input type="password" name="password" id="password" placeholder="Enter your password"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pr-10">
+                    <button type="button" id="togglePassword"
+                        class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-eye" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                            <path
+                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                        </svg>
+                    </button>
+                </div>
+                <span class="w-full flex justify-between">
+                    <a href="#">Forgot password</a>
+                    <label class="select-none flex items-center gap-3" for="remember_user">
+                        <input type="checkbox" name="remember_user" id="remember_user"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        Remember Me
+                    </label>
+                </span>
+                <span class="flex justify-center">
+                    <button onclick="return Login()"
+                        class="rounded-full bg-[#0086B8] hover:scale-75 transition-all w-20 aspect-square text-white">Login</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const passwordField = document.getElementById('password');
+
+        // Toggle password field type
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+        }
+    });
+    function Login() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let retVal = false;
+        if (email == "admin" && password == "123") {
+            retVal = true;
+            window.location.href = "dash/";
+        }
+        return retVal;
+    }
+</script>
+
+</html>

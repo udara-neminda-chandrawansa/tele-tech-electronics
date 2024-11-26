@@ -1,0 +1,13 @@
+.login-form{
+    height: 50%;
+    width: 60%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 11px;
+}
+
+.banner-side{
+    width: 50%;
+    height: 100%;
+    background: #000000C9;
+    border-radius: 11px 0px 0px 11px;
+}
