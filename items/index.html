@@ -14,9 +14,27 @@
 <body class="h-dvh max-lg:h-fit">
     <!--Nav-->
     <div
-        class="nav bg-[#029ED9] w-full h-1/6 max-lg:h-[17dvh] max-sm:h-[6dvh] rounded-b-full flex justify-end items-center max-md:justify-center">
-        <!--Logged User-->
-        <h3 class="text-2xl max-md:text-sm text-white mr-20 max-md:mr-0">Welcome Sahan Ranawaka</h3>
+        class="nav bg-[#029ED9] w-full h-1/6 max-lg:h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
+        <span class="flex items-center gap-3 ml-20 max-lg:ml-0 max-sm:scale-75">
+            <button onclick="history.go ( -1);"
+                class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
+                <img src="../images/common/go-back.png" alt="go-back" class="scale-75">
+            </button>
+            <button onclick="window.location.href = '../main-panel/';"
+                class="p-2 text-[#029ED9] rounded-lg bg-white flex gap-3 justify-center items-center hover:scale-90 transition-all">
+                <img src="../images/common/go-to-main.png" alt="go-to-main">
+                Go to Main Panel
+            </button>
+        </span>
+        <span class="flex items-center gap-3 mr-20 max-lg:mr-0 max-sm:scale-75">
+            <!--Logged User-->
+            <h3 class="text-2xl max-md:text-sm text-white">Welcome Sahan Ranawaka</h3>
+            <!--log out btn-->
+            <button onclick="window.location.href = '../';"
+                class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
+                <img src="../images/common/logout.png" alt="logout">
+            </button>
+        </span>
     </div>
     <div class="h-5/6 flex flex-col">
         <!--breadcrumbs-->
@@ -51,72 +69,72 @@
             <div onclick="locatePanelItem('addItem');"
                 class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(./images/add\ item.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/add\ item.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Add New Items</p>
+                <p class="text-center max-sm:text-sm">Add New Items</p>
             </div>
             <div onclick="locatePanelItem('addCategory');"
                 class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(./images/add\ cat.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/add\ cat.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Add New Category</p>
+                <p class="text-center max-sm:text-sm">Add New Category</p>
             </div>
             <div
                 class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(./images/add\ col.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/add\ col.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Add New Color</p>
+                <p class="text-center max-sm:text-sm">Add New Color</p>
             </div>
             <div
                 class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(./images/add\ size.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/add\ size.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Add New Size</p>
+                <p class="text-center max-sm:text-sm">Add New Size</p>
             </div>
             <div
-                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#61BEC5] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
+                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../images/main-panel/btn-icons/users.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/item\ list.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Users</p>
+                <p class="text-center max-sm:text-sm">Items List</p>
             </div>
             <div
-                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#A4AF00] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
+                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../images/main-panel/btn-icons/sales.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/cat\ list.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Sales</p>
+                <p class="text-center max-sm:text-sm">Category List</p>
             </div>
             <div
-                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#C2056D] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
+                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../images/main-panel/btn-icons/customer.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/color\ list.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Customer</p>
+                <p class="text-center max-sm:text-sm">Color List</p>
             </div>
             <div
-                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#D3B400] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
+                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../images/main-panel/btn-icons/suppliers.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/size\ list.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Suppliers</p>
+                <p class="text-center max-sm:text-sm">Size List</p>
             </div>
             <div
-                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#E06813] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
+                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../images/main-panel/btn-icons/billing.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/labels.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Billing</p>
+                <p class="text-center max-sm:text-sm">Print Labels</p>
             </div>
             <div
-                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#5C0045] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
+                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../images/main-panel/btn-icons/stock.png) no-repeat; background-size: cover;">
+                    style="background: url(./images/import.png) no-repeat; background-size: contain;">
                 </div>
-                <p>Stock</p>
+                <p class="text-center max-sm:text-sm">Import Item</p>
             </div>
         </div>
     </div>
