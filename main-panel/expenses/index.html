@@ -8,10 +8,10 @@
     <link rel="icon" href="./images/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../../styles/common.css">
 </head>
 
-<body class="h-dvh max-lg:h-fit">
+<body class="h-dvh">
     <!--Nav-->
     <div
         class="nav bg-[#029ED9] w-full h-1/6 max-lg:h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
@@ -58,41 +58,41 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Items</p>
+                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Expenses</p>
                         </div>
                     </li>
                 </ol>
             </nav>
         </div>
         <!--buttons-->
-        <div class="flex flex-grow justify-center items-center gap-6 flex-wrap text-white">
+        <div class="grid grid-cols-4 max-md:grid-cols-2 place-content-center justify-items-center h-full gap-6 text-white">
             <div onclick="locatePanelItem('addItem');"
                 class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#920000] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-white text-[#920000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../items/images/add_item.png) no-repeat; background-size: cover;">
+                    style="background: url(../../main-panel/expenses/images/add_exp.png) no-repeat; background-size: cover;">
                 </div>
                 <p class="text-center max-sm:text-sm">Add New Items</p>
             </div>
             <div onclick="locatePanelItem('addCategory');"
                 class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#920000] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-white text-[#920000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../items/images/add_cat.png) no-repeat; background-size: cover;">
+                    style="background: url(../../main-panel/expenses/images/add_exp_cat.png) no-repeat; background-size: cover;">
                 </div>
                 <p class="text-center max-sm:text-sm">Add New Category</p>
             </div>
             <div
-                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#920000] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-white text-[#920000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
+                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#920000] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#920000] text-white rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
                 <div class="w-10 h-10"
-                    style="background: url(../items/images/add_col.png) no-repeat; background-size: contain; background-position: center;">
-                </div>
-                <p class="text-center max-sm:text-sm">Add New Color</p>
-            </div>
-            <div
-                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#920000] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-white text-[#920000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
-                <div class="w-10 h-10"
-                    style="background: url(../items/images/add_size.png) no-repeat; background-size: cover;">
+                    style="background: url(../../main-panel/expenses/images/exp_list.png) no-repeat; background-size: cover;">
                 </div>
                 <p class="text-center max-sm:text-sm">Add New Size</p>
+            </div>
+            <div
+                class="w-[200px] max-lg:w-[150px] max-sm:w-[100px] border-2 border-[#920000] h-[200px] max-lg:h-[150px] max-sm:h-[100px] bg-[#920000] text-white rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
+                <div class="w-10 h-10"
+                    style="background: url(../../main-panel/expenses/images/exp_cat.png) no-repeat; background-size: contain; background-position: center;">
+                </div>
+                <p class="text-center max-sm:text-sm">Add New Color</p>
             </div>
         </div>
     </div>
