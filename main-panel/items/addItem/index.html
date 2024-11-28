@@ -85,9 +85,15 @@
                     </div>
                     <div>
                         <label for="supplier" class="block mb-2 text-sm font-medium text-black ">Supplier</label>
-                        <input type="text" id="supplier"
+                        <select id="supplier"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Your supplier name" required />
+                            placeholder="Your supplier name" required>
+                            <option selected>Your supplier name</option>
+                            <option value="s1">Supplier 1</option>
+                            <option value="s2">Supplier 2</option>
+                            <option value="s3">Supplier 3</option>
+                            <option value="s4">Supplier 4</option>
+                        </select>
                     </div>
                 </div>
                 <div class="grid gap-6 mb-6 md:grid-cols-4">
