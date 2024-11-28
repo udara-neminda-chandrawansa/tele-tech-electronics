@@ -8,6 +8,7 @@
     <link rel="icon" href="./images/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../../styles/common.css">
 </head>
 
@@ -76,11 +77,11 @@
         </div>
         <!--search-->
         <div class="px-12 max-sm:px-6 py-5 flex w-1/2 max-md:w-full items-center gap-3">
-            <label for="search">Search</label>
-            <input type="text" id="search"
+            <label for="search_imp">Search</label>
+            <input type="text" id="search_imp"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Enter item name" required />
-            <button class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
+            <button onclick="searchItems();" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
         </div>
         <!--btn controls-->
         <div class="px-12 max-sm:px-6 py-5 flex w-full items-center max-md:flex-col justify-between gap-3">
@@ -89,8 +90,53 @@
                 <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">CSV</button>
                 <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">Excel</button>
                 <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">PDF</button>
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">Column
-                    Visibility</button>
+                <button data-popover-target="popover-click" data-popover-trigger="click" data-popover-placement="bottom"
+                    type="button" class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">
+                    Column Visibility
+                </button>
+                <div data-popover id="popover-click" role="tooltip"
+                    class="absolute z-10 invisible inline-block w-fit text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
+                    <ul
+                        class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-col">
+                        <!-- First Column -->
+                        <li>
+                            <input id="filter_hash" type="checkbox" checked class="hidden peer">
+                            <label for="filter_hash"
+                                class="w-full flex px-4 py-2 border-b border-gray-200 rounded-t-lg select-none peer-checked:bg-blue-300"
+                                onclick="filterColumn('#');">
+                                #
+                            </label>
+                        </li>
+                        <!-- Second Column -->
+                        <li>
+                            <input id="filter_name" type="checkbox" checked class="hidden peer">
+                            <label for="filter_name"
+                                class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
+                                onclick="filterColumn('Item Name');">
+                                Item Name
+                            </label>
+                        </li>
+                        <!-- Third Column -->
+                        <li>
+                            <input id="filter_val" type="checkbox" checked class="hidden peer">
+                            <label for="filter_val"
+                                class="flex w-full px-4 py-2 border-b select-none peer-checked:bg-blue-300"
+                                onclick="filterColumn('Value');">
+                                Value
+                            </label>
+                        </li>
+                        <!-- Fourth Column -->
+                        <li>
+                            <input id="filter_desc" type="checkbox" checked class="hidden peer">
+                            <label for="filter_desc"
+                                class="flex w-full px-4 py-2 rounded-b-lg select-none peer-checked:bg-blue-300"
+                                onclick="filterColumn('Description');">
+                                Description
+                            </label>
+                        </li>
+                    </ul>
+                    <div data-popper-arrow></div>
+                </div>
             </span>
             <span class="w-fit max-md:w-full items-center flex gap-3">
                 Show
@@ -101,7 +147,7 @@
             </span>
         </div>
         <!--table-->
-        <div class="px-12 max-sm:px-6 py-5 overflow-y-scroll bg-white flex flex-col gap-6">
+        <div class="px-12 max-sm:px-6 py-5 overflow-y-auto bg-white flex flex-col gap-6">
             <span class="h-10 py-6 flex justify-between items-center">
                 <button class="p-3 border-2 rounded-lg flex gap-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -119,7 +165,7 @@
             </span>
             <!--table from flowbite-->
             <div class="relative overflow-x-auto">
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <table id="impTable" class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <thead class="text-xs text-white uppercase bg-[#47891E]">
                         <tr>
                             <th scope="col" class="px-6 py-3 rounded-tl-lg">
@@ -138,9 +184,9 @@
                     </thead>
                     <tbody>
                         <tr class="bg-white border-2 text-black">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 1
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
                                 Sample
                             </td>
@@ -161,9 +207,9 @@
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black border-b">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 1
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
                                 Sample
                             </td>
@@ -184,9 +230,9 @@
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black border-b">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 1
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
                                 Sample
                             </td>
@@ -207,9 +253,9 @@
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black border-b">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 1
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
                                 Sample
                             </td>
@@ -230,9 +276,9 @@
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black border-b">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 1
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
                                 Sample
                             </td>
@@ -253,9 +299,9 @@
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black border-b">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 1
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
                                 Sample
                             </td>
@@ -276,9 +322,9 @@
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black border-b">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 1
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
                                 Sample
                             </td>
@@ -299,11 +345,11 @@
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black border-b">
-                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                 1
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
-                                Sample
+                                Sample 
                             </td>
                             <td class="px-6 py-4">
                                 Requested
@@ -324,9 +370,62 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+<script>
+    function searchItems() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search_imp");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("impTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    function filterColumn(selectedColName) {
+        // Get the table and its header row
+        var table = document.getElementById("impTable");
+        var th = table.querySelectorAll("thead th");
+        var rows = table.querySelectorAll("tbody tr");
+
+        // Find the index of the selected column
+        var colIndex = -1;
+        th.forEach((header, index) => {
+            if (header.textContent.trim() === selectedColName) {
+                colIndex = index;
+            }
+        });
+
+        if (colIndex === -1) {
+            console.error("Column not found!");
+            return;
+        }
+
+        // Toggle visibility of the column
+        var isHidden = th[colIndex].style.display === "none";
+        th[colIndex].style.display = isHidden ? "" : "none";
+
+        rows.forEach((row) => {
+            var cells = row.querySelectorAll("td");
+            if (cells[colIndex]) {
+                cells[colIndex].style.display = isHidden ? "" : "none";
+            }
+        });
+    }
+</script>
 
 </html>
