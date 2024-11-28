@@ -69,7 +69,7 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Add Expense Category</p>
+                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Update Expense</p>
                         </div>
                     </li>
                 </ol>
@@ -77,16 +77,69 @@
         </div>
         <div class="flex-grow p-6">
             <div class="flex flex-grow flex-col border-2 h-full rounded-lg p-6">
-                <div class="grid gap-6 mb-6 md:grid-cols-1">
+                <div class="grid gap-6 mb-6 md:grid-cols-3">
                     <div>
-                        <label for="category" class="block mb-2 text-sm font-medium text-black ">Expense Category</label>
-                        <input id="category" type="text"
+                        <label for="exp_date" class="block mb-2 text-sm font-medium text-black ">Date</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker id="exp_date" type="text"
+                                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
+                                placeholder="Select date">
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="title" class="block mb-2 text-sm font-medium text-black ">Expense Title</label>
+                        <input id="title" type="text"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Enter expense category" required>
+                            placeholder="Enter expense title" required>
                     </div>
                 </div>
+                <div class="grid gap-6 mb-6 md:grid-cols-3">
+                    <div>
+                        <label for="quantity" class="block mb-2 text-sm font-medium text-black ">Branch</label>
+                        <select type="text" id="quantity"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                            placeholder="Enter Qty" required>
+                            <option value="0">Select a branch</option>
+                            <option value="col">Colombo</option>
+                            <option value="galle">Galle</option>
+                            <option value="matara">Matara</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="price" class="block mb-2 text-sm font-medium text-black ">Expence Category</label>
+                        <select type="tel" id="price"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                            placeholder="Enter price" required>
+                            <option value="0">Select an expense Category</option>
+                            <option value="1">Category 1</option>
+                            <option value="2">Category 2</option>
+                            <option value="3">Category 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid gap-6 mb-6 md:grid-cols-3">
+                    <div>
+                        <label for="amount" class="block mb-2 text-sm font-medium text-black ">Amount</label>
+                        <input id="amount" type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                            placeholder="Enter amount" required>
+                    </div>
+                </div>
+                <div class="grid mb-6 md:grid-cols-1">
+                    <label for="details" class="block mb-2 text-sm font-medium text-gray-900">Details</label>
+                    <textarea id="details" rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter Details"></textarea>
+                </div>
                 <div class="flex justify-center items-center w-full gap-4 p-4">
-                    <button class="py-3 px-6 bg-[#029ED9] text-white rounded-lg">Add</button>
+                    <button class="py-3 px-6 bg-[#029ED9] text-white rounded-lg">Save</button>
                     <button class="py-3 px-6 bg-black text-white rounded-lg">Reset</button>
                     <button class="py-3 px-6 bg-red-600 text-white rounded-lg">Cancel</button>
                 </div>
