@@ -69,73 +69,37 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Items List</p>
+                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Import Items</p>
                         </div>
                     </li>
                 </ol>
             </nav>
         </div>
-        <!--search-->
-        <div class="px-12 max-sm:px-6 py-5 flex w-1/2 max-md:w-full items-center gap-3">
-            <label for="search_imp">Search</label>
-            <input type="text" id="search_imp"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Enter item name" required />
-            <button onclick="searchItems();" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
-        </div>
         <!--btn controls-->
-        <div class="px-12 max-sm:px-6 py-5 flex w-full items-center max-md:flex-col justify-between gap-3">
-            <span class="w-fit max-md:w-full max-md:justify-center flex gap-3 max-sm:gap-1 max-[350px]:scale-75">
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">Copy</button>
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">CSV</button>
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">Excel</button>
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">PDF</button>
-                <button data-popover-target="popover-click" data-popover-trigger="click" data-popover-placement="bottom"
-                    type="button" class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">
-                    Column Visibility
-                </button>
-                <div data-popover id="popover-click" role="tooltip"
-                    class="absolute z-10 invisible inline-block w-fit text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
-                    <ul
-                        class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-col">
-                        <!-- First Column -->
-                        <li>
-                            <input id="filter_hash" type="checkbox" checked class="hidden peer">
-                            <label for="filter_hash"
-                                class="w-full flex px-4 py-2 border-b border-gray-200 rounded-t-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('#');">
-                                #
-                            </label>
-                        </li>
-                        <!-- Second Column -->
-                        <li>
-                            <input id="filter_name" type="checkbox" checked class="hidden peer">
-                            <label for="filter_name"
-                                class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Item Name');">
-                                Item Name
-                            </label>
-                        </li>
-                        <!-- Third Column -->
-                        <li>
-                            <input id="filter_val" type="checkbox" checked class="hidden peer">
-                            <label for="filter_val"
-                                class="flex w-full px-4 py-2 border-b select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Value');">
-                                Value
-                            </label>
-                        </li>
-                        <!-- Fourth Column -->
-                        <li>
-                            <input id="filter_desc" type="checkbox" checked class="hidden peer">
-                            <label for="filter_desc"
-                                class="flex w-full px-4 py-2 rounded-b-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Description');">
-                                Description
-                            </label>
-                        </li>
-                    </ul>
-                    <div data-popper-arrow></div>
+        <div class="px-12 max-sm:px-6 py-5 flex w-full items-end max-md:flex-col justify-between gap-3">
+            <span class="w-fit max-md:w-full max-md:justify-center flex gap-3 max-sm:gap-1">
+                <!--file input-->
+                <div class="flex items-center justify-center w-[100px] h-[100px]">
+                    <label for="dropzone-file"
+                        class="flex flex-col items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                        <div class="flex flex-col items-center justify-center">
+                            <svg class="w-8 h-8 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 20 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                            </svg>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" />
+                    </label>
+                </div>
+                <!--btn controls-->
+                <div class="flex flex-col justify-between max-md:w-full">
+                    <p>File must be in CSV format</p>
+                    <span class="w-full flex justify-between">
+                        <button class="py-2 px-5 bg-[#029ED9] text-white rounded-lg">Import</button>
+                        <button class="py-2 px-5 bg-red-600 text-white rounded-lg">Cancel</button>
+                    </span>
                 </div>
             </span>
             <span class="w-fit max-md:w-full items-center flex gap-3">
@@ -148,8 +112,8 @@
         </div>
         <!--table-->
         <div class="px-12 max-sm:px-6 py-5 overflow-y-auto bg-white flex flex-col gap-6">
-            <span class="h-10 py-6 flex justify-between items-center">
-                <button class="p-3 border-2 rounded-lg flex gap-3">
+            <span class="h-10 py-6 flex justify-between items-center max-sm:flex-col max-sm:h-fit max-sm:gap-3">
+                <button class="px-5 py-2 border-2 rounded-lg flex gap-3 flex items-center max-sm:w-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-download" viewBox="0 0 16 16">
                         <path
@@ -159,7 +123,7 @@
                     </svg>
                     List
                 </button>
-                <button class="p-3 border-2 rounded-lg flex gap-3 text-white bg-[#029ED9]">
+                <button class="p-3 border-2 rounded-lg flex gap-3 text-white bg-[#029ED9] max-sm:text-sm max-sm:w-full">
                     Download Example Format
                 </button>
             </span>
@@ -349,7 +313,7 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                Sample 
+                                Sample
                             </td>
                             <td class="px-6 py-4">
                                 Requested
