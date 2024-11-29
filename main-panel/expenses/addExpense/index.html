@@ -102,26 +102,50 @@
                 </div>
                 <div class="grid gap-6 mb-6 md:grid-cols-3">
                     <div>
-                        <label for="quantity" class="block mb-2 text-sm font-medium text-black ">Branch</label>
-                        <select type="text" id="quantity"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Enter Qty" required>
-                            <option value="0">Select a branch</option>
-                            <option value="col">Colombo</option>
-                            <option value="galle">Galle</option>
-                            <option value="matara">Matara</option>
-                        </select>
+                        <label for="branch-search" class="block mb-2 text-sm font-medium text-black ">Branch</label>
+                        <!-- Dropdown wrapper -->
+                        <div class="relative">
+                            <!-- Search input -->
+                            <input id="branch-search" type="text"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Select branch" oninput="filterBranches()" />
+                            <!-- Dropdown options -->
+                            <ul id="branch-options"
+                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
+                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                    onclick="selectBranch('Colombo')">Colombo</li>
+                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100" onclick="selectBranch('Galle')">
+                                    Galle</li>
+                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100" onclick="selectBranch('Matara')">
+                                    Matara</li>
+                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                    onclick="selectBranch('Kurunegala')">Kurunegala</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="md:col-span-2">
-                        <label for="price" class="block mb-2 text-sm font-medium text-black ">Expence Category</label>
-                        <select type="tel" id="price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Enter price" required>
-                            <option value="0">Select an expense Category</option>
-                            <option value="1">Category 1</option>
-                            <option value="2">Category 2</option>
-                            <option value="3">Category 3</option>
-                        </select>
+                        <label for="expense-search" class="block mb-2 text-sm font-medium text-black ">Expence Category</label>
+                        <!-- Dropdown wrapper -->
+                        <div class="relative">
+                            <!-- Search input -->
+                            <input id="expense-search" type="text"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Select expense category" oninput="filterExpenses()" />
+                            <!-- Dropdown options -->
+                            <ul id="expense-options"
+                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
+                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                    onclick="selectExpense('Category 1')">Category 1</li>
+                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                    onclick="selectExpense('Category 2')">
+                                    Category 2</li>
+                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                    onclick="selectExpense('Category 3')">
+                                    Category 3</li>
+                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                    onclick="selectExpense('Category 4')">Category 4</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="grid gap-6 mb-6 md:grid-cols-3">
@@ -149,5 +173,85 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+<script>
+
+    //
+    // ** for searching/selecting branches
+    //
+
+    const branchOptions = document.getElementById('branch-options');
+    const branchSearch = document.getElementById('branch-search');
+
+    // Filter the dropdown list based on user input
+    function filterBranches() {
+        const filter = branchSearch.value.toLowerCase();
+        const items = branchOptions.getElementsByTagName('li');
+
+        for (let i = 0; i < items.length; i++) {
+            const text = items[i].textContent || items[i].innerText;
+            items[i].style.display = text.toLowerCase().includes(filter) ? '' : 'none';
+        }
+
+        // Show the dropdown if input has value, else hide it
+        branchOptions.style.display = branchSearch.value ? 'block' : 'none';
+    }
+
+    // Handle selecting a branch
+    function selectBranch(branch) {
+        branchSearch.value = branch; // Update the input with the selected value
+        branchOptions.style.display = 'none'; // Hide the dropdown
+    }
+
+    // Close the dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!branchSearch.contains(e.target) && !branchOptions.contains(e.target)) {
+            branchOptions.style.display = 'none';
+        }
+    });
+
+    // Show the dropdown on focus
+    branchSearch.addEventListener('focus', () => {
+        branchOptions.style.display = 'block';
+    });
+
+    //
+    // ** for searching/selecting expense category
+    //
+
+    const expenseOptions = document.getElementById('expense-options');
+    const expenseSearch = document.getElementById('expense-search');
+
+    // Filter the dropdown list based on user input
+    function filterExpenses() {
+        const filter = expenseSearch.value.toLowerCase();
+        const items = expenseOptions.getElementsByTagName('li');
+
+        for (let i = 0; i < items.length; i++) {
+            const text = items[i].textContent || items[i].innerText;
+            items[i].style.display = text.toLowerCase().includes(filter) ? '' : 'none';
+        }
+
+        // Show the dropdown if input has value, else hide it
+        expenseOptions.style.display = expenseSearch.value ? 'block' : 'none';
+    }
+
+    // Handle selecting a branch
+    function selectExpense(branch) {
+        expenseSearch.value = branch; // Update the input with the selected value
+        expenseOptions.style.display = 'none'; // Hide the dropdown
+    }
+
+    // Close the dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!expenseSearch.contains(e.target) && !expenseOptions.contains(e.target)) {
+            expenseOptions.style.display = 'none';
+        }
+    });
+
+    // Show the dropdown on focus
+    expenseSearch.addEventListener('focus', () => {
+        expenseOptions.style.display = 'block';
+    });
+</script>
 
 </html>
