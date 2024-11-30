@@ -13,12 +13,30 @@
 
 <body>
     <div class="max-lg:h-fit">
-        <!--Nav-->
-        <div
-            class="nav bg-[#029ED9] w-full h-[17dvh] max-sm:h-[6dvh] rounded-b-full flex justify-end items-center max-md:justify-center">
+    <!--Nav-->
+    <div
+        class="nav bg-[#029ED9] w-full h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
+        <span class="flex items-center gap-3 ml-20 max-lg:ml-0 max-sm:scale-75">
+            <button onclick="history.go ( -1);"
+                class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
+                <img src="../../images/common/go-back.png" alt="go-back" class="scale-75">
+            </button>
+            <button onclick="window.location.href = '../../main-panel/';"
+                class="p-2 text-[#029ED9] rounded-lg bg-white flex gap-3 justify-center items-center hover:scale-90 transition-all">
+                <img src="../../images/common/go-to-main.png" alt="go-to-main">
+                Go to Main Panel
+            </button>
+        </span>
+        <span class="flex items-center gap-3 mr-20 max-lg:mr-0 max-sm:scale-75">
             <!--Logged User-->
-            <h3 class="text-2xl max-md:text-sm text-white mr-20 max-md:mr-0">Welcome Sahan Ranawaka</h3>
-        </div>
+            <h3 class="text-2xl max-md:text-sm text-white">Welcome Sahan Ranawaka</h3>
+            <!--log out btn-->
+            <button onclick="window.location.href = '../../';"
+                class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
+                <img src="../../images/common/logout.png" alt="logout">
+            </button>
+        </span>
+    </div>
         <!--breadcrumbs-->
         <div class="px-12 max-sm:px-6 py-5">
             <nav class="flex" aria-label="Breadcrumb">
@@ -151,7 +169,8 @@
                 <div class="w-[1px] h-5/6 border-[1px] border-black max-md:w-5/6"></div>
                 <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
                     <div class="flex max-md:items-center">
-                        <img src="../../main-panel/dash/images/rounded-panel/purchases.png" alt="card-img" class="w-1/2">
+                        <img src="../../main-panel/dash/images/rounded-panel/purchases.png" alt="card-img"
+                            class="w-1/2">
                         <span class="flex flex-col w-1/2 h-full justify-evenly">
                             <p class="text-center">Purchases</p>
                             <h3 class="text-2xl text-center font-bold">04</h3>
@@ -333,6 +352,11 @@
             </div>
         </div>
     </div>
+    <footer
+        class="h-[80px] bg-[#029ED9] max-md:text-sm max-sm:text-xs max-md:flex-col text-center w-full flex items-center text-white justify-center gap-3">
+        <p>Copyright</p>
+        <p>Powered By <strong>Silicon Radon Networks (PVT)Ltd.</strong> All rights reserved.</p>
+    </footer>
 </body>
 <script>
     // for toggling chart/table

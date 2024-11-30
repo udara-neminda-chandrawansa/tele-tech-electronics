@@ -14,51 +14,66 @@
     <!--Nav-->
     <div
         class="nav bg-[#029ED9] w-full h-1/6 max-lg:h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-end items-center max-sm:justify-center">
-        <!--Logged User-->
-        <h3 class="text-2xl max-sm:text-sm text-white mr-20 max-sm:mr-0">Welcome Sahan Ranawaka</h3>
+        <span class="flex gap-3 mr-20 items-center">
+            <!--Logged User-->
+            <h3 class="text-2xl max-sm:text-sm text-white max-sm:mr-0">Welcome Sahan Ranawaka</h3>
+            <!--log out btn-->
+            <button onclick="window.location.href = '../';"
+                class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
+                <img src="../images/common/logout.png" alt="logout">
+        </span>
+        </button>
     </div>
     <!--Main Panel-->
-    <div class="grid grid-cols-4 max-md:grid-cols-3 max-md:p-4 max-sm:grid-cols-2 place-items-center h-5/6 gap-6 text-white px-12">
+    <div
+        class="grid grid-cols-4 max-md:grid-cols-3 max-md:p-4 max-sm:grid-cols-2 place-items-center h-5/6 gap-6 text-white px-12">
         <div onclick="locatePanelItem('dash');"
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#47891E] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/dash.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/dash.png) no-repeat; background-size: cover;">
+            </div>
             <p>Dashboard</p>
         </div>
         <div onclick="locatePanelItem('items');"
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/items.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/items.png) no-repeat; background-size: cover;">
+            </div>
             <p>Items</p>
         </div>
         <div onclick="locatePanelItem('expenses');"
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#920000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/expenses.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/expenses.png) no-repeat; background-size: cover;">
+            </div>
             <p>Expenses</p>
         </div>
         <div
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#0042D0] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/reports.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/reports.png) no-repeat; background-size: cover;">
+            </div>
             <p>Reports</p>
         </div>
         <div
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#61BEC5] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/users.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/users.png) no-repeat; background-size: cover;">
+            </div>
             <p>Users</p>
         </div>
         <div onclick="locatePanelItem('sales');"
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#A4AF00] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/sales.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/sales.png) no-repeat; background-size: cover;">
+            </div>
             <p>Sales</p>
         </div>
         <div
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#C2056D] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/customer.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/customer.png) no-repeat; background-size: cover;">
+            </div>
             <p>Customer</p>
         </div>
         <div
@@ -71,26 +86,30 @@
         <div
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#E06813] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/billing.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/billing.png) no-repeat; background-size: cover;">
+            </div>
             <p>Billing</p>
         </div>
         <div
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#5C0045] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/stock.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/stock.png) no-repeat; background-size: cover;">
+            </div>
             <p>Stock</p>
         </div>
         <div
             class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-black rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all">
             <div class="w-10 h-10"
-                style="background: url(../images/main-panel/btn-icons/settings.png) no-repeat; background-size: cover;"></div>
+                style="background: url(../images/main-panel/btn-icons/settings.png) no-repeat; background-size: cover;">
+            </div>
             <p>Settings</p>
         </div>
     </div>
 </body>
 <script>
-    function locatePanelItem(panelItem){
+    function locatePanelItem(panelItem) {
         window.location.href = "../main-panel/" + panelItem;
     }
 </script>
+
 </html>
