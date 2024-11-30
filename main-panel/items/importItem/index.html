@@ -77,9 +77,9 @@
         </div>
         <!--btn controls-->
         <div class="px-12 max-sm:px-6 py-5 flex w-full items-end max-md:flex-col justify-between gap-3">
-            <span class="w-fit max-md:w-full max-md:justify-center flex gap-3 max-sm:gap-1">
+            <span class="w-fit max-md:w-full max-md:justify-center flex gap-3 max-sm:gap-3 max-sm:flex-col">
                 <!--file input-->
-                <div class="flex items-center justify-center w-[100px] h-[100px]">
+                <div class="flex items-center justify-center sm:w-[100px] h-[100px]">
                     <label for="dropzone-file"
                         class="flex flex-col items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                         <div class="flex flex-col items-center justify-center">
@@ -94,7 +94,7 @@
                     </label>
                 </div>
                 <!--btn controls-->
-                <div class="flex flex-col justify-between max-md:w-full">
+                <div class="flex flex-col justify-between max-md:w-full max-sm:gap-3">
                     <p>File must be in CSV format</p>
                     <span class="w-full flex justify-between">
                         <button class="py-2 px-5 bg-[#029ED9] text-white rounded-lg">Import</button>
@@ -111,9 +111,9 @@
             </span>
         </div>
         <!--table-->
-        <div class="px-12 max-sm:px-6 py-5 overflow-y-auto bg-white flex flex-col gap-6">
+        <div class="px-12 max-sm:px-6 py-5 overflow-y-auto bg-white flex flex-col flex-grow gap-6">
             <span class="h-10 py-6 flex justify-between items-center max-sm:flex-col max-sm:h-fit max-sm:gap-3">
-                <button class="px-5 py-2 border-2 rounded-lg flex gap-3 flex items-center max-sm:w-full">
+                <button class="px-5 py-2 border-2 rounded-lg flex gap-3 flex items-center max-sm:w-full max-sm:justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-download" viewBox="0 0 16 16">
                         <path
@@ -123,7 +123,7 @@
                     </svg>
                     List
                 </button>
-                <button class="p-3 border-2 rounded-lg flex gap-3 text-white bg-[#029ED9] max-sm:text-sm max-sm:w-full">
+                <button class="p-3 border-2 rounded-lg flex gap-3 text-white bg-[#029ED9] max-sm:text-sm max-sm:w-full max-sm:justify-center">
                     Download Example Format
                 </button>
             </span>
@@ -335,7 +335,14 @@
                 </table>
             </div>
         </div>
+        <footer
+        class="h-[80px] bg-[#029ED9] max-md:text-sm max-sm:text-xs max-md:flex-col text-center w-full flex items-center text-white justify-center gap-3">
+        <p>Copyright</p>
+        <p>Powered By <strong>Silicon Radon Networks (PVT)Ltd.</strong> All rights reserved.</p>
+    </footer>
+
     </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script>

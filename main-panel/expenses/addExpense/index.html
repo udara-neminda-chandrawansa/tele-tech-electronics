@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="../../../styles/common.css">
 </head>
 
-<body class="h-dvh max-lg:h-fit">
+<body class="h-dvh flex flex-col">
     <!--Nav-->
     <div
-        class="nav bg-[#029ED9] w-full h-1/6 max-lg:h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
+        class="nav bg-[#029ED9] w-full h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
         <span class="flex items-center gap-3 ml-20 max-lg:ml-0 max-sm:scale-75">
             <button onclick="history.go ( -1);"
                 class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
@@ -37,7 +37,7 @@
             </button>
         </span>
     </div>
-    <div class="h-5/6 flex flex-col">
+    <div class="flex-grow flex flex-col">
         <!--breadcrumbs-->
         <div class="px-12 max-sm:px-6 py-5">
             <nav class="flex" aria-label="Breadcrumb">
@@ -75,7 +75,8 @@
                 </ol>
             </nav>
         </div>
-        <div class="flex-grow p-6">
+        <!--main panel-->
+        <div class="p-6">
             <div class="flex flex-grow flex-col border-2 h-full rounded-lg p-6">
                 <div class="grid gap-6 mb-6 md:grid-cols-3">
                     <div>
@@ -124,7 +125,8 @@
                         </div>
                     </div>
                     <div class="md:col-span-2">
-                        <label for="expense-search" class="block mb-2 text-sm font-medium text-black ">Expence Category</label>
+                        <label for="expense-search" class="block mb-2 text-sm font-medium text-black ">Expence
+                            Category</label>
                         <!-- Dropdown wrapper -->
                         <div class="relative">
                             <!-- Search input -->
@@ -162,13 +164,19 @@
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter Details"></textarea>
                 </div>
-                <div class="flex justify-center items-center w-full gap-4 p-4">
-                    <button class="py-3 px-6 bg-[#029ED9] text-white rounded-lg">Save</button>
-                    <button class="py-3 px-6 bg-black text-white rounded-lg">Reset</button>
-                    <button class="py-3 px-6 bg-red-600 text-white rounded-lg">Cancel</button>
+                <div class="flex justify-center items-center w-full gap-4 max-sm:flex-col max-sm:p-0">
+                    <button class="py-3 px-6 bg-[#029ED9] text-white rounded-lg max-sm:py-1 max-sm:px-3 max-sm:w-full">Add</button>
+                    <button class="py-3 px-6 bg-black text-white rounded-lg max-sm:py-1 max-sm:px-3 max-sm:w-full">Reset</button>
+                    <button class="py-3 px-6 bg-red-600 text-white rounded-lg max-sm:py-1 max-sm:px-3 max-sm:w-full">Cancel</button>
                 </div>
             </div>
         </div>
+        <div class="flex-grow"></div>
+        <footer
+            class="h-[80px] bg-[#029ED9] max-md:text-sm max-sm:text-xs max-md:flex-col text-center w-full flex items-center text-white justify-center gap-3">
+            <p>Copyright</p>
+            <p>Powered By <strong>Silicon Radon Networks (PVT)Ltd.</strong> All rights reserved.</p>
+        </footer>
     </div>
 
 </body>

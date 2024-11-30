@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../../../styles/common.css">
 </head>
 
-<body class="h-dvh max-lg:h-fit">
+<body class="h-dvh flex flex-col">
     <!--Nav-->
     <div
-        class="nav bg-[#029ED9] w-full h-1/6 max-lg:h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
+        class="nav bg-[#029ED9] w-full h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
         <span class="flex items-center gap-3 ml-20 max-lg:ml-0 max-sm:scale-75">
             <button onclick="history.go ( -1);"
                 class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
@@ -36,7 +36,7 @@
             </button>
         </span>
     </div>
-    <div class="h-5/6 flex flex-col">
+    <div class="flex-grow flex flex-col">
         <!--breadcrumbs-->
         <div class="px-12 max-sm:px-6 py-5">
             <nav class="flex" aria-label="Breadcrumb">
@@ -74,8 +74,9 @@
                 </ol>
             </nav>
         </div>
-        <div class="flex-grow p-6">
-            <div class="flex flex-grow flex-col border-2 h-full rounded-lg p-6">
+        <!--main panel-->
+        <div class="p-6">
+            <div class="flex flex-col border-2 h-full rounded-lg p-6">
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <label for="item_name" class="block mb-2 text-sm font-medium text-black ">Item name</label>
@@ -136,7 +137,7 @@
                 </div>
                 <div class="flex items-center justify-center w-full">
                     <label for="dropzone-file"
-                        class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                        class="flex flex-col items-center justify-center w-full flex-grow border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
                             <svg class="w-8 h-8 mb-4 text-gray-500 " aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
@@ -157,6 +158,12 @@
                 </div>
             </div>
         </div>
+        <div class="flex-grow"></div>
+        <footer
+            class="h-[80px] bg-[#029ED9] max-md:text-sm max-sm:text-xs max-md:flex-col text-center w-full flex items-center text-white justify-center gap-3">
+            <p>Copyright</p>
+            <p>Powered By <strong>Silicon Radon Networks (PVT)Ltd.</strong> All rights reserved.</p>
+        </footer>
     </div>
 
 </body>

@@ -96,10 +96,11 @@
                 </button>
                 <div data-popover id="popover-click" role="tooltip"
                     class="absolute z-10 invisible inline-block w-fit text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
-                    <ul class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-col">
+                    <ul
+                        class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-col">
                         <!-- First Column -->
                         <li>
-                            <input id="filter_hash" type="checkbox"checked class="hidden peer">
+                            <input id="filter_hash" type="checkbox" checked class="hidden peer">
                             <label for="filter_hash"
                                 class="w-full flex px-4 py-2 border-b border-gray-200 rounded-t-lg select-none peer-checked:bg-blue-300"
                                 onclick="filterColumn('#');">
@@ -108,7 +109,7 @@
                         </li>
                         <!-- Second Column -->
                         <li>
-                            <input id="filter_name" type="checkbox"checked class="hidden peer">
+                            <input id="filter_name" type="checkbox" checked class="hidden peer">
                             <label for="filter_name"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
                                 onclick="filterColumn('Item Name');">
@@ -117,7 +118,7 @@
                         </li>
                         <!-- Third Column -->
                         <li>
-                            <input id="filter_qty" type="checkbox"checked class="hidden peer">
+                            <input id="filter_qty" type="checkbox" checked class="hidden peer">
                             <label for="filter_qty"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
                                 onclick="filterColumn('Qty');">
@@ -126,7 +127,7 @@
                         </li>
                         <!-- Fourth Column -->
                         <li>
-                            <input id="filter_status" type="checkbox"checked class="hidden peer">
+                            <input id="filter_status" type="checkbox" checked class="hidden peer">
                             <label for="filter_status"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
                                 onclick="filterColumn('Status');">
@@ -135,7 +136,7 @@
                         </li>
                         <!-- Fifth Column -->
                         <li>
-                            <input id="filter_manage" type="checkbox"checked class="hidden peer">
+                            <input id="filter_manage" type="checkbox" checked class="hidden peer">
                             <label for="filter_manage"
                                 class="flex w-full px-4 py-2 rounded-b-lg select-none peer-checked:bg-blue-300"
                                 onclick="filterColumn('Manage');">
@@ -155,7 +156,7 @@
             </span>
         </div>
         <!--table-->
-        <div class="px-12 max-sm:px-6 py-5 overflow-y-auto bg-white flex flex-col">
+        <div class="px-12 max-sm:px-6 py-5 overflow-y-auto bg-white flex flex-col flex-grow">
             <span></span>
             <!--table from flowbite-->
             <div class="relative overflow-x-auto">
@@ -328,7 +329,13 @@
                 </table>
             </div>
         </div>
+        <footer
+            class="h-[80px] bg-[#029ED9] max-md:text-sm max-sm:text-xs max-md:flex-col text-center w-full flex items-center text-white justify-center gap-3">
+            <p>Copyright</p>
+            <p>Powered By <strong>Silicon Radon Networks (PVT)Ltd.</strong> All rights reserved.</p>
+        </footer>
     </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script>
