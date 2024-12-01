@@ -111,7 +111,7 @@
                     </span>
                     <!--textfields-->
                     <div class="h-fit p-2 flex gap-3 max-sm:flex-col max-sm:items-center">
-                        <!-- Dropdown wrapper -->
+                        <!-- Dropdown wrapper (customer selector)-->
                         <div class="relative max-sm:w-full">
                             <!-- Search input -->
                             <input id="customer-search" type="text"
@@ -138,7 +138,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <button type="button"
+                        <!--add customer btn (blue)-->
+                        <button type="button" data-modal-target="customer-modal" data-modal-toggle="customer-modal"
                             class="text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -147,6 +148,7 @@
                                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                             </svg>
                         </button>
+                        <!--barcode-->
                         <div class="max-sm:w-full">
                             <input type="text" id="barcode"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -418,6 +420,7 @@
                         </ul>
                     </div>
                 </span>
+                <!--sidebar products cards-->
                 <div
                     class="grid grid-cols-3 max-xl:grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 gap-3 overflow-y-auto p-3">
                     <div
@@ -915,6 +918,176 @@
             </div>
         </div>
     </div>
+    <!-- Add customer Modal -->
+    <div id="customer-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Add Customer
+                    </h3>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        data-modal-hide="customer-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="max-sm:w-full">
+                            <label for="customer_name" class="block mb-2 text-sm font-medium text-black ">Customer
+                                Name</label>
+                            <input type="text" id="customer_name"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Enter Customer name" required />
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="mobile" class="block mb-2 text-sm font-medium text-black ">Mobile</label>
+                            <input type="text" id="mobile"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Enter mobile" required />
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="phone" class="block mb-2 text-sm font-medium text-black ">Phone</label>
+                            <input type="text" id="phone"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Enter phone" required />
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="email" class="block mb-2 text-sm font-medium text-black ">Email</label>
+                            <input type="email" id="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Enter email" required />
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="prev_due" class="block mb-2 text-sm font-medium text-black ">Previous
+                                Due</label>
+                            <input type="text" id="prev_due"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Enter previous due" required />
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="gst" class="block mb-2 text-sm font-medium text-black ">GST Number</label>
+                            <input type="text" id="gst"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Enter GST number" required />
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="tax_no" class="block mb-2 text-sm font-medium text-black ">Tax Number</label>
+                            <input type="text" id="tax_no"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Enter tax number" required />
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="province" class="block mb-2 text-sm font-medium text-black ">Province</label>
+                            <select id="province"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option selected>Choose a province</option>
+                                <option value="west">Western Province</option>
+                                <option value="east">Eastern Province</option>
+                                <option value="south">Southern Province</option>
+                                <option value="north">Northern Province</option>
+                            </select>
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="district" class="block mb-2 text-sm font-medium text-black ">District</label>
+                            <select id="district"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option selected>Choose a district</option>
+                                <option value="gm">Gampaha</option>
+                                <option value="col">Colombo</option>
+                                <option value="kan">Kandy</option>
+                                <option value="kur">Kurunegala</option>
+                            </select>
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="city" class="block mb-2 text-sm font-medium text-black ">City</label>
+                            <!-- Dropdown wrapper -->
+                            <div class="relative">
+                                <!-- Search input -->
+                                <input id="city" type="text"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    placeholder="Search Items" oninput="filterCities()" />
+                                <!-- Dropdown options -->
+                                <ul id="city-options"
+                                    class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        onclick="selectCity('City 1')">
+                                        City 1
+                                    </li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        onclick="selectCity('City 2')">
+                                        City 2
+                                    </li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        onclick="selectCity('City 3')">
+                                        City 3
+                                    </li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        onclick="selectCity('City 4')">
+                                        City 4
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="postal-code" class="block mb-2 text-sm font-medium text-black">Postal
+                                Code</label>
+                            <!-- Dropdown wrapper -->
+                            <div class="relative">
+                                <!-- Search input -->
+                                <input id="postal-code" type="text"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    placeholder="Search Postal Codes" oninput="filterPostalCodes()" />
+                                <!-- Dropdown options -->
+                                <ul id="postal-code-options"
+                                    class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        onclick="selectPostalCode('10001')">
+                                        10001
+                                    </li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        onclick="selectPostalCode('10002')">
+                                        10002
+                                    </li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        onclick="selectPostalCode('10003')">
+                                        10003
+                                    </li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                                        onclick="selectPostalCode('10004')">
+                                        10004
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="max-sm:w-full">
+                            <label for="address" class="block mb-2 text-sm font-medium text-black">Address</label>
+                            <textarea id="address" rows="2"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Enter address"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b">
+                    <button data-modal-hide="default-modal" type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Save</button>
+                    <button data-modal-hide="default-modal" type="button"
+                        class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer
         class="h-[80px] bg-[#029ED9] max-md:text-sm max-sm:text-xs max-md:flex-col text-center w-full flex items-center text-white justify-center gap-3">
         <p>Copyright</p>
@@ -1005,6 +1178,86 @@
     itemSearch.addEventListener("focus", () => {
         itemOption.style.display = "block";
     });
+
+    //
+    // ** for searching cities
+    //
+    const cityOption = document.getElementById("city-options");
+    const citySearch = document.getElementById("city-search");
+
+    // Filter the dropdown list based on user input
+    function filterCities() {
+        const filter = citySearch.value.toLowerCase();
+        const items = cityOption.getElementsByTagName("li");
+
+        for (let i = 0; i < items.length; i++) {
+            const text = items[i].textContent || items[i].innerText;
+            items[i].style.display = text.toLowerCase().includes(filter)
+                ? ""
+                : "none";
+        }
+
+        // Show the dropdown if input has value, else hide it
+        cityOption.style.display = citySearch.value ? "block" : "none";
+    }
+
+    // Handle selecting a item
+    function selectCity(item) {
+        citySearch.value = item; // Update the input with the selected value
+        cityOption.style.display = "none"; // Hide the dropdown
+    }
+
+    // Close the dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!citySearch.contains(e.target) && !cityOption.contains(e.target)) {
+            cityOption.style.display = "none";
+        }
+    });
+
+    // Show the dropdown on focus
+    citySearch.addEventListener("focus", () => {
+        cityOption.style.display = "block";
+    });
+
+    //
+    // ** for searching postal codes
+    //
+    const postalCodeOptions = document.getElementById("postal-code-options");
+    const postalCodeSearch = document.getElementById("postal-code-search");
+
+    // Filter the dropdown list based on user input
+    function filterPostalCodes() {
+        const filter = postalCodeSearch.value.toLowerCase();
+        const items = postalCodeOptions.getElementsByTagName("li");
+
+        for (let i = 0; i < items.length; i++) {
+            const text = items[i].textContent || items[i].innerText;
+            items[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
+        }
+
+        // Show the dropdown if input has value, else hide it
+        postalCodeOptions.style.display = postalCodeSearch.value ? "block" : "none";
+    }
+
+    // Handle selecting a postal code
+    function selectPostalCode(postalCode) {
+        postalCodeSearch.value = postalCode; // Update the input with the selected value
+        postalCodeOptions.style.display = "none"; // Hide the dropdown
+    }
+
+    // Close the dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!postalCodeSearch.contains(e.target) && !postalCodeOptions.contains(e.target)) {
+            postalCodeOptions.style.display = "none";
+        }
+    });
+
+    // Show the dropdown on focus
+    postalCodeSearch.addEventListener("focus", () => {
+        postalCodeOptions.style.display = "block";
+    });
+
+
 </script>
 
 </html>
