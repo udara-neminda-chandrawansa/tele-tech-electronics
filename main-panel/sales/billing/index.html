@@ -15,7 +15,7 @@
 <body class="h-dvh max-lg:h-fit">
     <!--Nav-->
     <div
-        class="nav bg-[#029ED9] w-full h-1/6 max-lg:h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
+        class="nav bg-[#029ED9] w-full h-[10%] max-lg:h-[17dvh] max-sm:h-fit max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
         <span class="flex items-center gap-3 ml-20 max-lg:ml-0 max-sm:scale-75">
             <button onclick="history.go ( -1);"
                 class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
@@ -39,7 +39,7 @@
             </button>
         </span>
     </div>
-    <div class="h-5/6 flex flex-col">
+    <div class="h-[90%] flex flex-col">
         <!--breadcrumbs-->
         <div class="px-12 max-sm:px-6 py-5">
             <nav class="flex" aria-label="Breadcrumb">
@@ -81,13 +81,6 @@
                 </ol>
             </nav>
         </div>
-        <!--view hold list-->
-        <div class="px-12 max-sm:px-6 py-1 flex w-full max-md:w-full items-center justify-center gap-3">
-            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                class="py-1 px-6 bg-white border-2 text-black rounded-lg">
-                View Hold List
-            </button>
-        </div>
         <!--main content-->
         <div class="flex px-12 max-sm:px-6 py-5 gap-2 overflow-y-auto max-xl:flex-col">
             <!--blue div + textfields + table-->
@@ -95,12 +88,16 @@
                 <div class="flex flex-col">
                     <!--blue div-->
                     <span
-                        class="bg-[#029ED9] h-20 max-sm:h-fit rounded-t-md flex max-sm:flex-col justify-between px-4 items-center">
-                        <span class="flex gap-3 text-white max-sm:text-sm">
+                        class="bg-[#029ED9] h-20 max-sm:h-fit rounded-t-md flex max-lg:flex-col max-lg:py-1 justify-between px-4 items-center">
+                        <span class="flex gap-3 text-white max-sm:text-sm max-sm:w-full">
                             <p>Sales Invoice</p>
                             <p>Branch: Colombo</p>
                         </span>
-                        <span class="max-sm:p-2 max-sm:text-sm">
+                        <span class="max-sm:p-2 max-sm:text-sm gap-3 flex justify-end max-sm:flex-col max-sm:w-full">
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="py-1 px-6 bg-white border-2 text-black rounded-lg">
+                                View Hold List
+                            </button>
                             <button class="py-1 px-6 bg-white border-2 text-black rounded-lg">
                                 Retail
                             </button>
@@ -1010,11 +1007,11 @@
                             </select>
                         </div>
                         <div class="max-sm:w-full">
-                            <label for="city" class="block mb-2 text-sm font-medium text-black ">City</label>
+                            <label for="city-search" class="block mb-2 text-sm font-medium text-black ">City</label>
                             <!-- Dropdown wrapper -->
                             <div class="relative">
                                 <!-- Search input -->
-                                <input id="city" type="text"
+                                <input id="city-search" type="text"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="Search Items" oninput="filterCities()" />
                                 <!-- Dropdown options -->
@@ -1040,12 +1037,11 @@
                             </div>
                         </div>
                         <div class="max-sm:w-full">
-                            <label for="postal-code" class="block mb-2 text-sm font-medium text-black">Postal
-                                Code</label>
+                            <label for="postal-code-search" class="block mb-2 text-sm font-medium text-black">Postal Code</label>
                             <!-- Dropdown wrapper -->
                             <div class="relative">
                                 <!-- Search input -->
-                                <input id="postal-code" type="text"
+                                <input id="postal-code-search" type="text"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="Search Postal Codes" oninput="filterPostalCodes()" />
                                 <!-- Dropdown options -->
@@ -1088,11 +1084,6 @@
             </div>
         </div>
     </div>
-    <footer
-        class="h-[80px] bg-[#029ED9] max-md:text-sm max-sm:text-xs max-md:flex-col text-center w-full flex items-center text-white justify-center gap-3">
-        <p>Copyright</p>
-        <p>Powered By <strong>Silicon Radon Networks (PVT)Ltd.</strong> All rights reserved.</p>
-    </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script>
