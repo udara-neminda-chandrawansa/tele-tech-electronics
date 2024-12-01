@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link rel="stylesheet" href="../../styles/common.css">
 </head>
-
 <body class="h-dvh">
     <!--Nav-->
     <div
@@ -36,9 +35,9 @@
             </button>
         </span>
     </div>
-    <div class="h-5/6 flex flex-col">
+    <div class="h-5/6 flex flex-col justify-start items-center">
         <!--breadcrumbs-->
-        <div class="px-12 max-sm:px-6 py-5">
+        <div class="px-12 max-sm:px-6 py-5 w-full">
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                     <li class="inline-flex items-center">
@@ -64,77 +63,80 @@
                 </ol>
             </nav>
         </div>
-        <!--buttons-->
-        <div class="grid grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 place-items-center h-full gap-6 text-white">
-            <div onclick="locatePanelItem('addItem');"
-                class="w-[200px] max-lg:w-[150px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/add_item.png) no-repeat; background-size: cover;">
+        <!--center-->
+        <div class="flex justify-center lg:items-center h-full">
+            <!--buttons-->
+            <div class="h-fit px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full gap-6 text-white">
+                <div onclick="locatePanelItem('addItem');"
+                    class="w-[200px] max-lg:w-[150px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/add_item.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Add New Items</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Add New Items</p>
-            </div>
-            <div onclick="locatePanelItem('addCategory');"
-                class="w-[200px] max-lg:w-[150px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/add_cat.png) no-repeat; background-size: cover;">
+                <div onclick="locatePanelItem('addCategory');"
+                    class="w-[200px] max-lg:w-[150px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/add_cat.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Add New Category</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Add New Category</p>
-            </div>
-            <div
-                class="w-[200px] max-lg:w-[150px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/add_col.png) no-repeat; background-size: contain; background-position: center;">
+                <div
+                    class="w-[200px] max-lg:w-[150px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/add_col.png) no-repeat; background-size: contain; background-position: center;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Add New Color</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Add New Color</p>
-            </div>
-            <div
-                class="w-[200px] max-lg:w-[150px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/add_size.png) no-repeat; background-size: cover;">
+                <div
+                    class="w-[200px] max-lg:w-[150px] border-2 border-[#007B7B] h-[200px] max-lg:h-[150px] bg-white text-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/add_size.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Add New Size</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Add New Size</p>
-            </div>
-            <div onclick="locatePanelItem('itemsList');"
-                class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/item_list.png) no-repeat; background-size: cover;">
+                <div onclick="locatePanelItem('itemsList');"
+                    class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/item_list.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Items List</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Items List</p>
-            </div>
-            <div onclick="locatePanelItem('categoryList');"
-                class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/cat_list.png) no-repeat; background-size: cover;">
+                <div onclick="locatePanelItem('categoryList');"
+                    class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/cat_list.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Category List</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Category List</p>
-            </div>
-            <div
-                class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/color_list.png) no-repeat; background-size: cover;">
+                <div
+                    class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/color_list.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Color List</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Color List</p>
-            </div>
-            <div
-                class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/size_list.png) no-repeat; background-size: cover;">
+                <div
+                    class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/size_list.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Size List</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Size List</p>
-            </div>
-            <div
-                class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/labels.png) no-repeat; background-size: cover;">
+                <div
+                    class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/labels.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Print Labels</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Print Labels</p>
-            </div>
-            <div onclick="locatePanelItem('importItem');"
-                class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
-                <div class="w-10 h-10"
-                    style="background: url(../../main-panel/items/images/import.png) no-repeat; background-size: cover;">
+                <div onclick="locatePanelItem('importItem');"
+                    class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#007B7B] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all xl:scalee-[110%] 2xl:scale-[110%]">
+                    <div class="w-10 h-10"
+                        style="background: url(../../main-panel/items/images/import.png) no-repeat; background-size: cover;">
+                    </div>
+                    <p class="text-center max-sm:text-sm">Import Item</p>
                 </div>
-                <p class="text-center max-sm:text-sm">Import Item</p>
             </div>
         </div>
     </div>
