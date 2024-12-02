@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="../../../styles/common.css" />
 </head>
 
-<body class="h-dvh max-lg:h-fit">
+<body class="h-dvh max-lg:h-fit"
+    onload="allPriceCalc();">
     <!--Nav-->
     <div
         class="nav bg-[#029ED9] w-full h-[10%] max-lg:h-[17dvh] max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
@@ -154,7 +155,7 @@
                     </div>
                 </div>
                 <!--table from flowbite-->
-                <div class="relative overflow-x-auto overflow-y-auto max-h-screen 2xl:h-full">
+                <div class="relative overflow-x-auto overflow-y-auto max-h-screen h-full">
                     <table id="itemsTable" class="w-full text-sm text-left rtl:text-right text-gray-500">
                         <thead class="text-xs text-black uppercase bg-[#00000042]">
                             <tr>
@@ -168,55 +169,45 @@
                         </thead>
                         <tbody>
                             <tr class="bg-white border-2 text-black">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    Sample Item 1
+                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                title="Laptop Pro X1">
+                                    Laptop Pro X1
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="p-3 border-2 bg-white text-black rounded-lg">100</span>
-                                </td>
-                                <td class="px-6 py-4">200000.00</td>
-                                <td class="px-6 py-4">20000.00</td>
-                                <td class="px-6 py-4">180000.00</td>
-                                <td class="px-6 py-4">
-                                    <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-2 text-black border-b">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    Sample Item 1
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="p-3 border-2 bg-white text-black rounded-lg">100</span>
-                                </td>
-                                <td class="px-6 py-4">200000.00</td>
-                                <td class="px-6 py-4">20000.00</td>
-                                <td class="px-6 py-4">180000.00</td>
-                                <td class="px-6 py-4">
-                                    <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-2 text-black border-b">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    Sample Item 1
+                                    <div class="relative flex items-center w-full">
+                                        <button type="button" onclick="decrementQuantity('quantity-input-1')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" id="quantity-input-1"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[4rem] text-center"
+                                            placeholder="QTY" value="1" min="1"
+                                            onchange="priceCalc('quantity-input-1', 'item-1-price', 'item-1-single-price', 'item-1-discount', 'item-1-subtotal');" />
+                                        <button type="button" onclick="incrementQuantity('quantity-input-1')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="p-3 border-2 bg-white text-black rounded-lg">100</span>
+                                    <input type="hidden" name="item-1-single-price" id="item-1-single-price" value="125000">
+                                    <p id="item-1-price">0</p>
                                 </td>
-                                <td class="px-6 py-4">200000.00</td>
-                                <td class="px-6 py-4">20000.00</td>
-                                <td class="px-6 py-4">180000.00</td>
+                                <td class="px-6 py-4">
+                                    <input type="number" id="item-1-discount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Discount" required data-input-counter data-input-counter-min="0"
+                                        onkeyup="priceCalc('quantity-input-1', 'item-1-price', 'item-1-single-price', 'item-1-discount', 'item-1-subtotal');" />
+                                </td>
+                                <td class="px-6 py-4" id="item-1-subtotal">0</td>
                                 <td class="px-6 py-4">
                                     <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -227,56 +218,46 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-2 text-black border-b">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    Sample Item 1
+                            <tr class="bg-white border-2 text-black">
+                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                title="Wireless Earbuds Elite">
+                                    Wireless Earbuds Elite
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="p-3 border-2 bg-white text-black rounded-lg">100</span>
-                                </td>
-                                <td class="px-6 py-4">200000.00</td>
-                                <td class="px-6 py-4">20000.00</td>
-                                <td class="px-6 py-4">180000.00</td>
-                                <td class="px-6 py-4">
-                                    <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-2 text-black border-b">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    Sample Item 1
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="p-3 border-2 bg-white text-black rounded-lg">100</span>
-                                </td>
-                                <td class="px-6 py-4">200000.00</td>
-                                <td class="px-6 py-4">20000.00</td>
-                                <td class="px-6 py-4">180000.00</td>
-                                <td class="px-6 py-4">
-                                    <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-2 text-black border-b">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    Sample Item 1
+                                    <div class="relative flex items-center w-full">
+                                        <button type="button" onclick="decrementQuantity('quantity-input-2')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" id="quantity-input-2"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[4rem] text-center"
+                                            placeholder="QTY" value="1" min="1"
+                                            onchange="priceCalc('quantity-input-2', 'item-2-price', 'item-2-single-price', 'item-2-discount', 'item-2-subtotal');" />
+                                        <button type="button" onclick="incrementQuantity('quantity-input-2')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="p-3 border-2 bg-white text-black rounded-lg">100</span>
+                                    <input type="hidden" name="item-2-single-price" id="item-2-single-price" value="15000">
+                                    <p id="item-2-price">0</p>
                                 </td>
-                                <td class="px-6 py-4">200000.00</td>
-                                <td class="px-6 py-4">20000.00</td>
-                                <td class="px-6 py-4">180000.00</td>
+                                <td class="px-6 py-4">
+                                    <input type="number" id="item-2-discount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Discount" required data-input-counter data-input-counter-min="0"
+                                        onkeyup="priceCalc('quantity-input-2', 'item-2-price', 'item-2-single-price', 'item-2-discount', 'item-2-subtotal');" />
+                                </td>
+                                <td class="px-6 py-4" id="item-2-subtotal">0</td>
                                 <td class="px-6 py-4">
                                     <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -287,16 +268,46 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-2 text-black border-b">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    Sample Item 1
+                            <tr class="bg-white border-2 text-black">
+                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                title="Smart Watch Ultra">
+                                    Smart Watch Ultra
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="p-3 border-2 bg-white text-black rounded-lg">100</span>
+                                    <div class="relative flex items-center w-full">
+                                        <button type="button" onclick="decrementQuantity('quantity-input-3')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" id="quantity-input-3"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[4rem] text-center"
+                                            placeholder="QTY" value="1" min="1"
+                                            onchange="priceCalc('quantity-input-3', 'item-3-price', 'item-3-single-price', 'item-3-discount', 'item-3-subtotal');" />
+                                        <button type="button" onclick="incrementQuantity('quantity-input-3')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </td>
-                                <td class="px-6 py-4">200000.00</td>
-                                <td class="px-6 py-4">20000.00</td>
-                                <td class="px-6 py-4">180000.00</td>
+                                <td class="px-6 py-4">
+                                    <input type="hidden" name="item-3-single-price" id="item-3-single-price" value="45000">
+                                    <p id="item-3-price">0</p>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <input type="number" id="item-3-discount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Discount" required data-input-counter data-input-counter-min="0"
+                                        onkeyup="priceCalc('quantity-input-3', 'item-3-price', 'item-3-single-price', 'item-3-discount', 'item-3-subtotal');" />
+                                </td>
+                                <td class="px-6 py-4" id="item-3-subtotal">0</td>
                                 <td class="px-6 py-4">
                                     <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -307,16 +318,96 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-2 text-black border-b">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    Sample Item 1
+                            <tr class="bg-white border-2 text-black">
+                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                title="Gaming Keyboard RGB">
+                                    Gaming Keyboard RGB
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="p-3 border-2 bg-white text-black rounded-lg">100</span>
+                                    <div class="relative flex items-center w-full">
+                                        <button type="button" onclick="decrementQuantity('quantity-input-4')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" id="quantity-input-4"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[4rem] text-center"
+                                            placeholder="QTY" value="1" min="1"
+                                            onchange="priceCalc('quantity-input-4', 'item-4-price', 'item-4-single-price', 'item-4-discount', 'item-4-subtotal');" />
+                                        <button type="button" onclick="incrementQuantity('quantity-input-4')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </td>
-                                <td class="px-6 py-4">200000.00</td>
-                                <td class="px-6 py-4">20000.00</td>
-                                <td class="px-6 py-4">180000.00</td>
+                                <td class="px-6 py-4">
+                                    <input type="hidden" name="item-4-single-price" id="item-4-single-price" value="22500">
+                                    <p id="item-4-price">0</p>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <input type="number" id="item-4-discount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Discount" required data-input-counter data-input-counter-min="0"
+                                        onkeyup="priceCalc('quantity-input-4', 'item-4-price', 'item-4-single-price', 'item-4-discount', 'item-4-subtotal');" />
+                                </td>
+                                <td class="px-6 py-4" id="item-4-subtotal">0</td>
+                                <td class="px-6 py-4">
+                                    <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-2 text-black">
+                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                    title="Noise Cancelling Headphones">
+                                    Noise Cancelling Headphones
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="relative flex items-center w-full">
+                                        <button type="button" onclick="decrementQuantity('quantity-input-5')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" id="quantity-input-5"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[4rem] text-center"
+                                            placeholder="QTY" value="1" min="1"
+                                            onchange="priceCalc('quantity-input-5', 'item-5-price', 'item-5-single-price', 'item-5-discount', 'item-5-subtotal');" />
+                                        <button type="button" onclick="incrementQuantity('quantity-input-5')"
+                                            class="flex-shrink-0 text-gray-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center">
+                                            <svg class="w-2.5 h-2.5 text-gray-900" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <input type="hidden" name="item-5-single-price" id="item-5-single-price" value="35000">
+                                    <p id="item-5-price">0</p>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <input type="number" id="item-5-discount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Discount" required data-input-counter data-input-counter-min="0"
+                                        onkeyup="priceCalc('quantity-input-5', 'item-5-price', 'item-5-single-price', 'item-5-discount', 'item-5-subtotal');" />
+                                </td>
+                                <td class="px-6 py-4" id="item-5-subtotal">0</td>
                                 <td class="px-6 py-4">
                                     <button class="p-3 border-2 bg-red-600 text-white rounded-lg">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -1037,7 +1128,8 @@
                             </div>
                         </div>
                         <div class="max-sm:w-full">
-                            <label for="postal-code-search" class="block mb-2 text-sm font-medium text-black">Postal Code</label>
+                            <label for="postal-code-search" class="block mb-2 text-sm font-medium text-black">Postal
+                                Code</label>
                             <!-- Dropdown wrapper -->
                             <div class="relative">
                                 <!-- Search input -->
@@ -1249,6 +1341,53 @@
     });
 
 
+</script>
+<script>
+    // for incrementing, decrementing qty
+    function incrementQuantity(inputId) {
+        const input = document.getElementById(inputId);
+        input.value = parseInt(input.value) + 1;
+        input.dispatchEvent(new Event('change'));
+    }
+
+    function decrementQuantity(inputId) {
+        const input = document.getElementById(inputId);
+        if (parseInt(input.value) > 1) {
+            input.value = parseInt(input.value) - 1;
+            input.dispatchEvent(new Event('change'));
+        }
+    }
+    // for price, discount, subtotal calc logic
+    function priceCalc(qtyContainer, priceContainer, onePrice, discountContainer, subtotalContainer){
+        let qtyNow = document.getElementById(qtyContainer).value;
+        let priceNow = document.getElementById(priceContainer);
+        let priceSingle = document.getElementById(onePrice).value;
+        let disNow = document.getElementById(discountContainer).value;
+        let subtNow = 0.0;
+
+        // calculate price (price = priceSingle * qtyNow)
+        let price = priceSingle * qtyNow;
+        // show in table
+        priceNow.innerText = price.toFixed(2);
+
+        // calculate subtotal (subtNow = price - disNow)
+        subtNow = price - disNow;
+        // show in table
+        document.getElementById(subtotalContainer).innerText = subtNow.toFixed(2);
+
+        //console.log("QTY: " + qtyNow, "Single Price: " + priceSingle, "Discount: " + disNow, "Subtotal: " + subtNow);
+    }
+    // for all calculations of all table rows
+    function allPriceCalc(){
+        priceCalc('quantity-input-1', 'item-1-price', 'item-1-single-price', 'item-1-discount', 'item-1-subtotal');
+        priceCalc('quantity-input-2', 'item-2-price', 'item-2-single-price', 'item-2-discount', 'item-2-subtotal');
+        priceCalc('quantity-input-3', 'item-3-price', 'item-3-single-price', 'item-3-discount', 'item-3-subtotal');
+        priceCalc('quantity-input-4', 'item-4-price', 'item-4-single-price', 'item-4-discount', 'item-4-subtotal');
+        priceCalc('quantity-input-5', 'item-5-price', 'item-5-single-price', 'item-5-discount', 'item-5-subtotal');
+        //priceCalc('quantity-input-6', 'item-6-price', 'item-6-single-price', 'item-6-discount', 'item-6-subtotal');
+        //priceCalc('quantity-input-7', 'item-7-price', 'item-7-single-price', 'item-7-discount', 'item-7-subtotal');
+        //priceCalc('quantity-input-8', 'item-8-price', 'item-8-single-price', 'item-8-discount', 'item-8-subtotal');
+    }
 </script>
 
 </html>
