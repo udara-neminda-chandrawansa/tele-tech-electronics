@@ -11,34 +11,35 @@
     <link rel="stylesheet" href="../../styles/common.css">
 </head>
 
-<body>
+<body class="h-dvh max-lg:h-fit flex flex-col justify-between">
+    <!--nav + breadcrumbs-->
     <div class="max-lg:h-fit">
-    <!--Nav-->
-    <div
-        class="nav bg-[#029ED9] w-full h-[17dvh] max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
-        <span class="flex items-center gap-3 ml-20 max-lg:ml-0 max-sm:scale-75">
-            <button onclick="history.go ( -1);"
-                class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
-                <img src="../../images/common/go-back.png" alt="go-back" class="scale-75">
-            </button>
-            <button onclick="window.location.href = '../../main-panel/';"
-                class="p-2 text-[#029ED9] rounded-lg bg-white flex gap-3 justify-center items-center hover:scale-90 transition-all">
-                <img src="../../images/common/go-to-main.png" alt="go-to-main">
-                Go to Main Panel
-            </button>
-        </span>
-        <span class="flex items-center gap-3 mr-20 max-lg:mr-0 max-sm:scale-75">
-            <!--Logged User-->
-            <h3 class="text-2xl max-md:text-sm text-white">Welcome Sahan Ranawaka</h3>
-            <!--log out btn-->
-            <button onclick="window.location.href = '../../';"
-                class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
-                <img src="../../images/common/logout.png" alt="logout">
-            </button>
-        </span>
-    </div>
+        <!--Nav-->
+        <div
+            class="nav bg-[#029ED9] w-full h-[10dvh] max-lg:h-[17dvh] max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
+            <span class="flex items-center gap-3 ml-20 max-lg:ml-0 max-sm:scale-75">
+                <button onclick="history.go ( -1);"
+                    class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
+                    <img src="../../images/common/go-back.png" alt="go-back" class="scale-75">
+                </button>
+                <button onclick="window.location.href = '../../main-panel/';"
+                    class="p-2 text-[#029ED9] rounded-lg bg-white flex gap-3 justify-center items-center hover:scale-90 transition-all">
+                    <img src="../../images/common/go-to-main.png" alt="go-to-main">
+                    Go to Main Panel
+                </button>
+            </span>
+            <span class="flex items-center gap-3 mr-20 max-lg:mr-0 max-sm:scale-75">
+                <!--Logged User-->
+                <h3 class="text-2xl max-md:text-sm text-white">Welcome Sahan Ranawaka</h3>
+                <!--log out btn-->
+                <button onclick="window.location.href = '../../';"
+                    class="rounded-full w-[50px] aspect-square bg-white flex justify-center items-center hover:scale-90 transition-all">
+                    <img src="../../images/common/logout.png" alt="logout">
+                </button>
+            </span>
+        </div>
         <!--breadcrumbs-->
-        <div class="px-12 max-sm:px-6 py-5">
+        <div class="px-12 max-sm:px-6 py-2">
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                     <li class="inline-flex items-center">
@@ -64,143 +65,143 @@
                 </ol>
             </nav>
         </div>
-        <!--green/blue data grid-->
-        <div class="flex flex-wrap gap-5 justify-center items-center py-5">
-            <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#47891E2B] flex">
-                <div class="bg-[#47891E] w-1/3 h-full flex justify-center items-center">
-                    <img src="../../main-panel/dash/images/data-cards/pd.png" alt="card-img" class="w-1/2">
-                </div>
-                <div class="flex flex-col justify-center items-center w-2/3">
-                    <p class="text-xs w-full pl-2">Total Purchase Due</p>
-                    <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
-                </div>
+    </div>
+    <!--green/blue data grid-->
+    <div class="flex flex-wrap gap-5 justify-center items-center py-2">
+        <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#47891E2B] flex">
+            <div class="bg-[#47891E] w-1/3 h-full flex justify-center items-center">
+                <img src="../../main-panel/dash/images/data-cards/pd.png" alt="card-img" class="w-1/2">
             </div>
-            <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#47891E2B] flex">
-                <div class="bg-[#47891E] w-1/3 h-full flex justify-center items-center">
-                    <img src="../../main-panel/dash/images/data-cards/sd.png" alt="card-img" class="w-1/2">
-                </div>
-                <div class="flex flex-col justify-center items-center w-2/3">
-                    <p class="text-xs w-full pl-2">Total Sales Due</p>
-                    <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
-                </div>
-            </div>
-            <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#47891E2B] flex">
-                <div class="bg-[#47891E] w-1/3 h-full flex justify-center items-center">
-                    <img src="../../main-panel/dash/images/data-cards/sa.png" alt="card-img" class="w-1/2">
-                </div>
-                <div class="flex flex-col justify-center items-center w-2/3">
-                    <p class="text-xs w-full pl-2">Total Sales Amount</p>
-                    <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
-                </div>
-            </div>
-            <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#47891E2B] flex">
-                <div class="bg-[#47891E] w-1/3 h-full flex justify-center items-center">
-                    <img src="../../main-panel/dash/images/data-cards/ea.png" alt="card-img" class="w-1/2">
-                </div>
-                <div class="flex flex-col justify-center items-center w-2/3">
-                    <p class="text-xs w-full pl-2">Total Expenses Amount</p>
-                    <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
-                </div>
-            </div>
-            <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#029ED914] flex">
-                <div class="bg-[#029ED9] w-1/3 h-full flex justify-center items-center">
-                    <img src="../../main-panel/dash/images/data-cards/pd.png" alt="card-img" class="w-1/2">
-                </div>
-                <div class="flex flex-col justify-center items-center w-2/3">
-                    <p class="text-xs w-full pl-2">Today Total Purchase</p>
-                    <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
-                </div>
-
-            </div>
-            <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#029ED914] flex">
-                <div class="bg-[#029ED9] w-1/3 h-full flex justify-center items-center">
-                    <img src="../../main-panel/dash/images/data-cards/sd.png" alt="card-img" class="w-1/2">
-                </div>
-                <div class="flex flex-col justify-center items-center w-2/3">
-                    <p class="text-xs w-full pl-2">Total Payment Recieved (Sales)</p>
-                    <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
-                </div>
-
-            </div>
-            <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#029ED914] flex">
-                <div class="bg-[#029ED9] w-1/3 h-full flex justify-center items-center">
-                    <img src="../../main-panel/dash/images/data-cards/sa.png" alt="card-img" class="w-1/2">
-                </div>
-                <div class="flex flex-col justify-center items-center w-2/3">
-                    <p class="text-xs w-full pl-2">Today Total Sales</p>
-                    <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
-                </div>
-
-            </div>
-            <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#029ED914] flex">
-                <div class="bg-[#029ED9] w-1/3 h-full flex justify-center items-center">
-                    <img src="../../main-panel/dash/images/data-cards/ea.png" alt="card-img" class="w-1/2">
-                </div>
-                <div class="flex flex-col justify-center items-center w-2/3">
-                    <p class="text-xs w-full pl-2">Today Total Expenses</p>
-                    <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
-                </div>
-
+            <div class="flex flex-col justify-center items-center w-2/3">
+                <p class="text-xs w-full pl-2">Total Purchase Due</p>
+                <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
             </div>
         </div>
-        <!--rounded panel-->
-        <div class="px-12 max-sm:px-6">
-            <div
-                class="rounded-2xl border-black border-2 h-[300px] max-md:h-fit flex items-center gap-3 max-md:flex-col">
-                <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
-                    <div class="flex max-md:items-center">
-                        <img src="../../main-panel/dash/images/rounded-panel/customer.png" alt="card-img" class="w-1/2">
-                        <span class="flex flex-col w-1/2 h-full justify-evenly">
-                            <p class="text-center">Customers</p>
-                            <h3 class="text-2xl text-center font-bold">04</h3>
-                        </span>
-                    </div>
+        <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#47891E2B] flex">
+            <div class="bg-[#47891E] w-1/3 h-full flex justify-center items-center">
+                <img src="../../main-panel/dash/images/data-cards/sd.png" alt="card-img" class="w-1/2">
+            </div>
+            <div class="flex flex-col justify-center items-center w-2/3">
+                <p class="text-xs w-full pl-2">Total Sales Due</p>
+                <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
+            </div>
+        </div>
+        <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#47891E2B] flex">
+            <div class="bg-[#47891E] w-1/3 h-full flex justify-center items-center">
+                <img src="../../main-panel/dash/images/data-cards/sa.png" alt="card-img" class="w-1/2">
+            </div>
+            <div class="flex flex-col justify-center items-center w-2/3">
+                <p class="text-xs w-full pl-2">Total Sales Amount</p>
+                <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
+            </div>
+        </div>
+        <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#47891E2B] flex">
+            <div class="bg-[#47891E] w-1/3 h-full flex justify-center items-center">
+                <img src="../../main-panel/dash/images/data-cards/ea.png" alt="card-img" class="w-1/2">
+            </div>
+            <div class="flex flex-col justify-center items-center w-2/3">
+                <p class="text-xs w-full pl-2">Total Expenses Amount</p>
+                <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
+            </div>
+        </div>
+        <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#029ED914] flex">
+            <div class="bg-[#029ED9] w-1/3 h-full flex justify-center items-center">
+                <img src="../../main-panel/dash/images/data-cards/pd.png" alt="card-img" class="w-1/2">
+            </div>
+            <div class="flex flex-col justify-center items-center w-2/3">
+                <p class="text-xs w-full pl-2">Today Total Purchase</p>
+                <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
+            </div>
+
+        </div>
+        <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#029ED914] flex">
+            <div class="bg-[#029ED9] w-1/3 h-full flex justify-center items-center">
+                <img src="../../main-panel/dash/images/data-cards/sd.png" alt="card-img" class="w-1/2">
+            </div>
+            <div class="flex flex-col justify-center items-center w-2/3">
+                <p class="text-xs w-full pl-2">Total Payment Recieved (Sales)</p>
+                <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
+            </div>
+
+        </div>
+        <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#029ED914] flex">
+            <div class="bg-[#029ED9] w-1/3 h-full flex justify-center items-center">
+                <img src="../../main-panel/dash/images/data-cards/sa.png" alt="card-img" class="w-1/2">
+            </div>
+            <div class="flex flex-col justify-center items-center w-2/3">
+                <p class="text-xs w-full pl-2">Today Total Sales</p>
+                <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
+            </div>
+
+        </div>
+        <div class="w-1/6 max-lg:w-1/3 max-sm:w-1/2 h-[70px] bg-[#029ED914] flex">
+            <div class="bg-[#029ED9] w-1/3 h-full flex justify-center items-center">
+                <img src="../../main-panel/dash/images/data-cards/ea.png" alt="card-img" class="w-1/2">
+            </div>
+            <div class="flex flex-col justify-center items-center w-2/3">
+                <p class="text-xs w-full pl-2">Today Total Expenses</p>
+                <h3 class="text-xl max-lg:text-lg w-full pl-2">Rs. 0.00</h3>
+            </div>
+
+        </div>
+    </div>
+    <!--rounded panel-->
+    <div class="px-12 max-sm:px-6">
+        <div class="rounded-2xl border-black border-2 h-[150px] max-md:h-fit flex items-center gap-3 max-md:flex-col">
+            <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
+                <div class="flex max-md:items-center">
+                    <img src="../../main-panel/dash/images/rounded-panel/customer.png" alt="card-img" class="w-1/2">
+                    <span class="flex flex-col w-1/2 h-full justify-evenly">
+                        <p class="text-center">Customers</p>
+                        <h3 class="text-2xl text-center font-bold">04</h3>
+                    </span>
                 </div>
-                <div class="w-[1px] h-5/6 border-[1px] border-black max-md:w-5/6"></div>
-                <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
-                    <div class="flex max-md:items-center">
-                        <img src="../../main-panel/dash/images/rounded-panel/supplier.png" alt="card-img" class="w-1/2">
-                        <span class="flex flex-col w-1/2 h-full justify-evenly">
-                            <p class="text-center">Suppliers</p>
-                            <h3 class="text-2xl text-center font-bold">04</h3>
-                        </span>
-                    </div>
+            </div>
+            <div class="w-[1px] h-5/6 border-[1px] border-black max-md:w-5/6"></div>
+            <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
+                <div class="flex max-md:items-center">
+                    <img src="../../main-panel/dash/images/rounded-panel/supplier.png" alt="card-img" class="w-1/2">
+                    <span class="flex flex-col w-1/2 h-full justify-evenly">
+                        <p class="text-center">Suppliers</p>
+                        <h3 class="text-2xl text-center font-bold">04</h3>
+                    </span>
                 </div>
-                <div class="w-[1px] h-5/6 border-[1px] border-black max-md:w-5/6"></div>
-                <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
-                    <div class="flex max-md:items-center">
-                        <img src="../../main-panel/dash/images/rounded-panel/purchases.png" alt="card-img"
-                            class="w-1/2">
-                        <span class="flex flex-col w-1/2 h-full justify-evenly">
-                            <p class="text-center">Purchases</p>
-                            <h3 class="text-2xl text-center font-bold">04</h3>
-                        </span>
-                    </div>
+            </div>
+            <div class="w-[1px] h-5/6 border-[1px] border-black max-md:w-5/6"></div>
+            <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
+                <div class="flex max-md:items-center">
+                    <img src="../../main-panel/dash/images/rounded-panel/purchases.png" alt="card-img" class="w-1/2">
+                    <span class="flex flex-col w-1/2 h-full justify-evenly">
+                        <p class="text-center">Purchases</p>
+                        <h3 class="text-2xl text-center font-bold">04</h3>
+                    </span>
                 </div>
-                <div class="w-[1px] h-5/6 border-[1px] border-black max-md:w-5/6"></div>
-                <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
-                    <div class="flex max-md:items-center">
-                        <img src="../../main-panel/dash/images/rounded-panel/invoice.png" alt="card-img" class="w-1/2">
-                        <span class="flex flex-col w-1/2 h-full justify-evenly">
-                            <p class="text-center">Sales Invoice</p>
-                            <h3 class="text-2xl text-center font-bold">04</h3>
-                        </span>
-                    </div>
+            </div>
+            <div class="w-[1px] h-5/6 border-[1px] border-black max-md:w-5/6"></div>
+            <div class="w-1/4 h-full flex flex-col justify-center items-center max-md:w-full">
+                <div class="flex max-md:items-center">
+                    <img src="../../main-panel/dash/images/rounded-panel/invoice.png" alt="card-img" class="w-1/2">
+                    <span class="flex flex-col w-1/2 h-full justify-evenly">
+                        <p class="text-center">Sales Invoice</p>
+                        <h3 class="text-2xl text-center font-bold">04</h3>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
+    <!--chart + table-->
     <div class="h-fit">
-        <div class="px-12 max-sm:px-6 py-5 flex justify-end gap-3">
+        <!--btns-->
+        <div class="px-12 max-sm:px-6 py-2 flex justify-end gap-3">
             <button id="chartBtn" class="border-black border-[1px] bg-black text-white p-3 rounded-lg">
                 Sales Chart
             </button>
             <button id="tableBtn" class="border-black border-[1px] p-3 rounded-lg">Stock Alert</button>
         </div>
-        <!--chart container-->
-        <div class="w-full">
+        <!--chart/table container-->
+        <div class="w-full px-12 max-sm:px-6 py-5">
             <!--chart-->
-            <div id="chart" class="px-12 max-sm:px-6 py-5 flex flex-col w-full">
+            <div id="chart" class="flex flex-col w-full">
                 <h1 class="text-2xl pb-5">Sales Chart</h1>
                 <!--chart from flowbite-->
                 <div class=" w-full h-full bg-white rounded-lg shadow">
@@ -213,9 +214,9 @@
                 </div>
             </div>
             <!--table-->
-            <div id="table" class="px-12 max-sm:px-6 py-5 hidden bg-white">
+            <div id="table" class="hidden bg-white lg:h-[300px] overflow-y-auto">
                 <!--table from flowbite-->
-                <div class="relative overflow-x-auto">
+                <div class="relative">
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                         <thead class="text-xs text-white uppercase bg-[#47891E]">
                             <tr>
@@ -352,11 +353,6 @@
             </div>
         </div>
     </div>
-    <footer
-        class="h-[80px] bg-[#029ED9] max-md:text-sm max-sm:text-xs max-md:flex-col text-center w-full flex items-center text-white justify-center gap-3">
-        <p>Copyright</p>
-        <p>Powered By <strong>Silicon Radon Networks (PVT)Ltd.</strong> All rights reserved.</p>
-    </footer>
 </body>
 <script>
     // for toggling chart/table
