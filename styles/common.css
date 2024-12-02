@@ -5,3 +5,63 @@
     padding: 0%;
     font-family: "Poppins", serif;
 }
+
+/*
+*** For searcheable combo boxes
+*/
+
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select-trigger {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background: rgb(249 250 251);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #718096;
+}
+
+.custom-select-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background: white;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.custom-select-search {
+    width: 100%;
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    outline: none;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+}
+
+.custom-select-option {
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+}
+
+.custom-select-option:hover {
+    background-color: #f0f0f0;
+}
+
+.custom-select-option.selected {
+    background-color: #e0e0e0;
+}

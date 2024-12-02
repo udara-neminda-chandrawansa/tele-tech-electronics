@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="../../../styles/common.css" />
 </head>
 
-<body class="h-dvh max-lg:h-fit"
-    onload="allPriceCalc();">
+<body class="h-dvh max-lg:h-fit" onload="allPriceCalc();">
     <!--Nav-->
     <div
         class="nav bg-[#029ED9] w-full h-[10%] max-lg:h-[17dvh] max-sm:py-6 rounded-b-full flex justify-between items-center max-lg:justify-center max-lg:flex-col">
@@ -109,32 +108,16 @@
                     </span>
                     <!--textfields-->
                     <div class="h-fit p-2 flex gap-3 max-sm:flex-col max-sm:items-center">
-                        <!-- Dropdown wrapper (customer selector)-->
-                        <div class="relative max-sm:w-full">
-                            <!-- Search input -->
-                            <input id="customer-search" type="text"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                placeholder="Walk-in customer" oninput="filterCustomers()" />
-                            <!-- Dropdown options -->
-                            <ul id="customer-options"
-                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCustomer('customer 1')">
-                                    Customer 1
-                                </li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCustomer('customer 2')">
-                                    Customer 2
-                                </li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCustomer('customer 3')">
-                                    Customer 3
-                                </li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCustomer('customer 4')">
-                                    Customer 4
-                                </li>
-                            </ul>
+                        <!--custom combobox-->
+                        <div class="custom-select w-fit">
+                            <select id="customer" name="customer"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                <option value="">Walk-in customer</option>
+                                <option value="Customer 1">Customer 1</option>
+                                <option value="Customer 2">Customer 2</option>
+                                <option value="Customer 3">Customer 3</option>
+                                <option value="Customer 4">Customer 4</option>
+                            </select>
                         </div>
                         <!--add customer btn (blue)-->
                         <button type="button" data-modal-target="customer-modal" data-modal-toggle="customer-modal"
@@ -169,8 +152,9 @@
                         </thead>
                         <tbody>
                             <tr class="bg-white border-2 text-black">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
-                                title="Laptop Pro X1">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                    title="Laptop Pro X1">
                                     Laptop Pro X1
                                 </td>
                                 <td class="px-6 py-4">
@@ -198,7 +182,8 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <input type="hidden" name="item-1-single-price" id="item-1-single-price" value="125000">
+                                    <input type="hidden" name="item-1-single-price" id="item-1-single-price"
+                                        value="125000">
                                     <p id="item-1-price">0</p>
                                 </td>
                                 <td class="px-6 py-4">
@@ -219,8 +204,9 @@
                                 </td>
                             </tr>
                             <tr class="bg-white border-2 text-black">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
-                                title="Wireless Earbuds Elite">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                    title="Wireless Earbuds Elite">
                                     Wireless Earbuds Elite
                                 </td>
                                 <td class="px-6 py-4">
@@ -248,7 +234,8 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <input type="hidden" name="item-2-single-price" id="item-2-single-price" value="15000">
+                                    <input type="hidden" name="item-2-single-price" id="item-2-single-price"
+                                        value="15000">
                                     <p id="item-2-price">0</p>
                                 </td>
                                 <td class="px-6 py-4">
@@ -269,8 +256,9 @@
                                 </td>
                             </tr>
                             <tr class="bg-white border-2 text-black">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
-                                title="Smart Watch Ultra">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                    title="Smart Watch Ultra">
                                     Smart Watch Ultra
                                 </td>
                                 <td class="px-6 py-4">
@@ -298,7 +286,8 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <input type="hidden" name="item-3-single-price" id="item-3-single-price" value="45000">
+                                    <input type="hidden" name="item-3-single-price" id="item-3-single-price"
+                                        value="45000">
                                     <p id="item-3-price">0</p>
                                 </td>
                                 <td class="px-6 py-4">
@@ -319,8 +308,9 @@
                                 </td>
                             </tr>
                             <tr class="bg-white border-2 text-black">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
-                                title="Gaming Keyboard RGB">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                    title="Gaming Keyboard RGB">
                                     Gaming Keyboard RGB
                                 </td>
                                 <td class="px-6 py-4">
@@ -348,7 +338,8 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <input type="hidden" name="item-4-single-price" id="item-4-single-price" value="22500">
+                                    <input type="hidden" name="item-4-single-price" id="item-4-single-price"
+                                        value="22500">
                                     <p id="item-4-price">0</p>
                                 </td>
                                 <td class="px-6 py-4">
@@ -369,7 +360,8 @@
                                 </td>
                             </tr>
                             <tr class="bg-white border-2 text-black">
-                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium whitespace-nowrap max-2xl:max-w-[100px] truncate cursor-pointer"
                                     title="Noise Cancelling Headphones">
                                     Noise Cancelling Headphones
                                 </td>
@@ -398,7 +390,8 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <input type="hidden" name="item-5-single-price" id="item-5-single-price" value="35000">
+                                    <input type="hidden" name="item-5-single-price" id="item-5-single-price"
+                                        value="35000">
                                     <p id="item-5-price">0</p>
                                 </td>
                                 <td class="px-6 py-4">
@@ -1098,64 +1091,32 @@
                             </select>
                         </div>
                         <div class="max-sm:w-full">
-                            <label for="city-search" class="block mb-2 text-sm font-medium text-black ">City</label>
-                            <!-- Dropdown wrapper -->
-                            <div class="relative">
-                                <!-- Search input -->
-                                <input id="city-search" type="text"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                    placeholder="Search Items" oninput="filterCities()" />
-                                <!-- Dropdown options -->
-                                <ul id="city-options"
-                                    class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCity('City 1')">
-                                        City 1
-                                    </li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCity('City 2')">
-                                        City 2
-                                    </li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCity('City 3')">
-                                        City 3
-                                    </li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCity('City 4')">
-                                        City 4
-                                    </li>
-                                </ul>
+                            <label for="city" class="block mb-2 text-sm font-medium text-black ">City</label>
+                            <!--custom combobox-->
+                            <div class="custom-select w-full">
+                                <select id="city" name="city"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                    <option value="">Select city</option>
+                                    <option value="City 1">City 1</option>
+                                    <option value="City 2">City 2</option>
+                                    <option value="City 3">City 3</option>
+                                    <option value="City 4">City 4</option>
+                                </select>
                             </div>
                         </div>
                         <div class="max-sm:w-full">
-                            <label for="postal-code-search" class="block mb-2 text-sm font-medium text-black">Postal
+                            <label for="p_code" class="block mb-2 text-sm font-medium text-black">Postal
                                 Code</label>
-                            <!-- Dropdown wrapper -->
-                            <div class="relative">
-                                <!-- Search input -->
-                                <input id="postal-code-search" type="text"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                    placeholder="Search Postal Codes" oninput="filterPostalCodes()" />
-                                <!-- Dropdown options -->
-                                <ul id="postal-code-options"
-                                    class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectPostalCode('10001')">
-                                        10001
-                                    </li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectPostalCode('10002')">
-                                        10002
-                                    </li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectPostalCode('10003')">
-                                        10003
-                                    </li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectPostalCode('10004')">
-                                        10004
-                                    </li>
-                                </ul>
+                            <!--custom combobox-->
+                            <div class="custom-select w-full">
+                                <select id="p_code" name="p_code"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                    <option value="">Select postal code</option>
+                                    <option value="1001">1001</option>
+                                    <option value="1002">1002</option>
+                                    <option value="1003">1003</option>
+                                    <option value="1004">1004</option>
+                                </select>
                             </div>
                         </div>
                         <div class="max-sm:w-full">
@@ -1178,170 +1139,7 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-<script>
-    //
-    // ** for searching customers
-    //
-    const customerOptions = document.getElementById("customer-options");
-    const customerSearch = document.getElementById("customer-search");
-
-    // Filter the dropdown list based on user input
-    function filterCustomers() {
-        const filter = customerSearch.value.toLowerCase();
-        const items = customerOptions.getElementsByTagName("li");
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter)
-                ? ""
-                : "none";
-        }
-
-        // Show the dropdown if input has value, else hide it
-        customerOptions.style.display = customerSearch.value ? "block" : "none";
-    }
-
-    // Handle selecting a customer
-    function selectCustomer(customer) {
-        customerSearch.value = customer; // Update the input with the selected value
-        customerOptions.style.display = "none"; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-        if (
-            !customerSearch.contains(e.target) &&
-            !customerOptions.contains(e.target)
-        ) {
-            customerOptions.style.display = "none";
-        }
-    });
-
-    // Show the dropdown on focus
-    customerSearch.addEventListener("focus", () => {
-        customerOptions.style.display = "block";
-    });
-
-    //
-    // ** for searching items
-    //
-    const itemOption = document.getElementById("item-options");
-    const itemSearch = document.getElementById("item-search");
-
-    // Filter the dropdown list based on user input
-    function filterItems() {
-        const filter = itemSearch.value.toLowerCase();
-        const items = itemOption.getElementsByTagName("li");
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter)
-                ? ""
-                : "none";
-        }
-
-        // Show the dropdown if input has value, else hide it
-        itemOption.style.display = itemSearch.value ? "block" : "none";
-    }
-
-    // Handle selecting a item
-    function selectItem(item) {
-        itemSearch.value = item; // Update the input with the selected value
-        itemOption.style.display = "none"; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-        if (!itemSearch.contains(e.target) && !itemOption.contains(e.target)) {
-            itemOption.style.display = "none";
-        }
-    });
-
-    // Show the dropdown on focus
-    itemSearch.addEventListener("focus", () => {
-        itemOption.style.display = "block";
-    });
-
-    //
-    // ** for searching cities
-    //
-    const cityOption = document.getElementById("city-options");
-    const citySearch = document.getElementById("city-search");
-
-    // Filter the dropdown list based on user input
-    function filterCities() {
-        const filter = citySearch.value.toLowerCase();
-        const items = cityOption.getElementsByTagName("li");
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter)
-                ? ""
-                : "none";
-        }
-
-        // Show the dropdown if input has value, else hide it
-        cityOption.style.display = citySearch.value ? "block" : "none";
-    }
-
-    // Handle selecting a item
-    function selectCity(item) {
-        citySearch.value = item; // Update the input with the selected value
-        cityOption.style.display = "none"; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-        if (!citySearch.contains(e.target) && !cityOption.contains(e.target)) {
-            cityOption.style.display = "none";
-        }
-    });
-
-    // Show the dropdown on focus
-    citySearch.addEventListener("focus", () => {
-        cityOption.style.display = "block";
-    });
-
-    //
-    // ** for searching postal codes
-    //
-    const postalCodeOptions = document.getElementById("postal-code-options");
-    const postalCodeSearch = document.getElementById("postal-code-search");
-
-    // Filter the dropdown list based on user input
-    function filterPostalCodes() {
-        const filter = postalCodeSearch.value.toLowerCase();
-        const items = postalCodeOptions.getElementsByTagName("li");
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
-        }
-
-        // Show the dropdown if input has value, else hide it
-        postalCodeOptions.style.display = postalCodeSearch.value ? "block" : "none";
-    }
-
-    // Handle selecting a postal code
-    function selectPostalCode(postalCode) {
-        postalCodeSearch.value = postalCode; // Update the input with the selected value
-        postalCodeOptions.style.display = "none"; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-        if (!postalCodeSearch.contains(e.target) && !postalCodeOptions.contains(e.target)) {
-            postalCodeOptions.style.display = "none";
-        }
-    });
-
-    // Show the dropdown on focus
-    postalCodeSearch.addEventListener("focus", () => {
-        postalCodeOptions.style.display = "block";
-    });
-
-
-</script>
+<script src="../../../scripts/common.js"></script>
 <script>
     // for incrementing, decrementing qty
     function incrementQuantity(inputId) {
@@ -1358,7 +1156,7 @@
         }
     }
     // for price, discount, subtotal calc logic
-    function priceCalc(qtyContainer, priceContainer, onePrice, discountContainer, subtotalContainer){
+    function priceCalc(qtyContainer, priceContainer, onePrice, discountContainer, subtotalContainer) {
         let qtyNow = document.getElementById(qtyContainer).value;
         let priceNow = document.getElementById(priceContainer);
         let priceSingle = document.getElementById(onePrice).value;
@@ -1378,7 +1176,7 @@
         //console.log("QTY: " + qtyNow, "Single Price: " + priceSingle, "Discount: " + disNow, "Subtotal: " + subtNow);
     }
     // for all calculations of all table rows
-    function allPriceCalc(){
+    function allPriceCalc() {
         priceCalc('quantity-input-1', 'item-1-price', 'item-1-single-price', 'item-1-discount', 'item-1-subtotal');
         priceCalc('quantity-input-2', 'item-2-price', 'item-2-single-price', 'item-2-discount', 'item-2-subtotal');
         priceCalc('quantity-input-3', 'item-3-price', 'item-3-single-price', 'item-3-discount', 'item-3-subtotal');

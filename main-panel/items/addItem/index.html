@@ -86,24 +86,15 @@
                     </div>
                     <div>
                         <label for="supplier-search" class="block mb-2 text-sm font-medium text-black">Supplier</label>
-                        <!-- Dropdown wrapper -->
-                        <div class="relative">
-                            <!-- Search input -->
-                            <input id="supplier-search" type="text"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                placeholder="Select supplier" oninput="filterSuppliers()" />
-                            <!-- Dropdown options -->
-                            <ul id="supplier-options"
-                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectSupplier('Supplier 1')">Supplier 1</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectSupplier('Supplier 2')">Supplier 2</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectSupplier('Supplier 3')">Supplier 3</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectSupplier('Supplier 4')">Supplier 4</li>
-                            </ul>
+                        <!--custom combobox-->
+                        <div class="custom-select w-full">
+                            <select id="supplier" name="supplier" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                <option value="">Select supplier</option>
+                                <option value="Supplier 1">Supplier 1</option>
+                                <option value="Supplier 2">Supplier 2</option>
+                                <option value="Supplier 3">Supplier 3</option>
+                                <option value="Supplier 4">Supplier 4</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -167,41 +158,5 @@
     </div>
 
 </body>
-<script>
-    const supplierOptions = document.getElementById('supplier-options');
-    const supplierSearch = document.getElementById('supplier-search');
-
-    // Filter the dropdown list based on user input
-    function filterSuppliers() {
-        const filter = supplierSearch.value.toLowerCase();
-        const items = supplierOptions.getElementsByTagName('li');
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter) ? '' : 'none';
-        }
-
-        // Show the dropdown if input has value, else hide it
-        supplierOptions.style.display = supplierSearch.value ? 'block' : 'none';
-    }
-
-    // Handle selecting a supplier
-    function selectSupplier(supplier) {
-        supplierSearch.value = supplier; // Update the input with the selected value
-        supplierOptions.style.display = 'none'; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!supplierSearch.contains(e.target) && !supplierOptions.contains(e.target)) {
-            supplierOptions.style.display = 'none';
-        }
-    });
-
-    // Show the dropdown on focus
-    supplierSearch.addEventListener('focus', () => {
-        supplierOptions.style.display = 'block';
-    });
-</script>
-
+<script src="../../../scripts/common.js"></script>
 </html>
