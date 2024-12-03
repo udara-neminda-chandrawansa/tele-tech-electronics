@@ -26,63 +26,149 @@
     </div>
     <!--center-->
     <div class="grid place-items-center h-5/6 w-full">
-        <!--Main Panel-->
+        <!--Main Panel (for max-lg)-->
         <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-fit gap-6 h-fit py-6 gap-6 text-white px-12">
+            class="hidden max-lg:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-fit gap-6 h-fit py-6 gap-6 text-white px-12">
             <div onclick="locatePanelItem('dash');"
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#FF8000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/dash.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/dash.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Dashboard</p>
             </div>
             <div
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#E7D400] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/billing.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/billing.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Billing</p>
             </div>
             <div onclick="locatePanelItem('items');"
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#FF6666] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/items.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/items.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Items</p>
             </div>
             <div
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#FF33FF] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/stock.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/stock.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Stock</p>
             </div>
             <div onclick="locatePanelItem('sales');"
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#6666FF] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/sales.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/sales.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Sales</p>
             </div>
             <div onclick="locatePanelItem('users');"
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#009900] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/users.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/users.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Users</p>
             </div>
             <div
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#660000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/customer.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/customer.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Customer</p>
             </div>
             <div
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#009999] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/suppliers.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/suppliers.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Suppliers</p>
             </div>
             <div onclick="locatePanelItem('expenses');"
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#999900] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/expenses.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/expenses.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Expenses</p>
             </div>
             <div
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#660033] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/reports.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/reports.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Reports</p>
             </div>
             <div
                 class="w-[200px] max-lg:w-[150px] h-[200px] max-lg:h-[150px] bg-[#67AB9F] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
-                <img src="../images/main-panel/btn-icons/settings.svg" class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
+                <img src="../images/main-panel/btn-icons/settings.svg"
+                    class="w-[105px] h-[105px] max-lg:w-[70px] max-lg:h-[70px]" alt="">
                 <p>Settings</p>
+            </div>
+        </div>
+        <!--Main Panel (for lg)-->
+        <div class="hidden lg:grid place-items-center">
+            <div class="grid grid-cols-5 gap-4 w-fit gap-6 h-fit py-3 gap-6 text-white px-12">
+                <div onclick="locatePanelItem('dash');"
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#FF8000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/dash.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Dashboard</p>
+                </div>
+                <div
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#E7D400] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/billing.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Billing</p>
+                </div>
+                <div onclick="locatePanelItem('items');"
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#FF6666] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/items.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Items</p>
+                </div>
+                <div
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#FF33FF] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/stock.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Stock</p>
+                </div>
+                <div onclick="locatePanelItem('sales');"
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#6666FF] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/sales.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Sales</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-4 gap-4 w-fit gap-6 h-fit py-3 gap-6 text-white px-12">
+                <div onclick="locatePanelItem('users');"
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#009900] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/users.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Users</p>
+                </div>
+                <div
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#660000] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/customer.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Customer</p>
+                </div>
+                <div
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#009999] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/suppliers.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Suppliers</p>
+                </div>
+                <div onclick="locatePanelItem('expenses');"
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#999900] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/expenses.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Expenses</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 w-fit gap-6 h-fit py-3 gap-6 text-white px-12">
+                <div
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#660033] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/reports.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Reports</p>
+                </div>
+                <div
+                    class="w-[200px] max-xl:w-[150px] h-[200px] max-xl:h-[150px] bg-[#67AB9F] rounded-lg flex flex-col gap-3 justify-center items-center hover:scale-90 transition-all cursor-pointer uppercase lg:text-xl">
+                    <img src="../images/main-panel/btn-icons/settings.svg"
+                        class="w-[105px] h-[105px] max-xl:w-[70px] max-xl:h-[70px]" alt="">
+                    <p>Settings</p>
+                </div>
             </div>
         </div>
     </div>
