@@ -11,6 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../../styles/common.css" />
 </head>
+<script>
+    // Initialize an array to hold all rows' data
+    let allData = [];
+</script>
 
 <body class="h-dvh max-lg:h-fit" onload="allPriceCalc();">
     <!--Nav-->
@@ -416,13 +420,16 @@
                 </div>
                 <!--white control panel-->
                 <div class="bg-[#0000000F] h-[200px] max-xl:h-fit flex flex-col rounded-b-lg">
+                    <!--info-->
                     <span
                         class="flex gap-3 h-fit w-full justify-evenly py-3 border-[#00000096] border-t-2 border-b-2 max-md:text-sm max-sm:text-xs max-md:flex-col max-md:p-2">
                         <p>Quantity: 0</p>
                         <p>Total Amount: 0</p>
                         <p>Grand Total: 0</p>
                     </span>
+                    <!--txts + btns-->
                     <div class="flex items-center max-lg:flex-col">
+                        <!--txts-->
                         <div class="flex flex-col gap-2 p-2 w-1/2 max-lg:w-full">
                             <div class="flex justify-between items-center">
                                 <label for="discount"
@@ -439,9 +446,11 @@
                                     placeholder="0" required />
                             </div>
                         </div>
-                        <div class="flex lg:flex-col items-center p-2 gap-2 w-1/2 max-lg:w-full">
+                        <!--btns-->
+                        <div class="grid grid-rows-2 grid-cols-2 grid-flow-col p-2 gap-4 w-1/2 max-lg:w-full">
                             <button type="button" data-modal-target="payment-modal" data-modal-toggle="payment-modal"
-                                class="w-1/3 gap-2 flex justify-center items-center text-white bg-[#029ED9] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 max-sm:px-2 py-2 max-sm:py-1 text-center inline-flex items-center max-sm:text-xs">
+                                onclick="getDataForPaymentModal();"
+                                class="row-span-2 gap-2 flex justify-center items-center text-white bg-[#029ED9] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 max-sm:px-2 py-2 max-sm:py-1 text-center inline-flex items-center max-sm:text-xs">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-cash" viewBox="0 0 16 16">
                                     <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
@@ -451,7 +460,7 @@
                                 Pay All
                             </button>
                             <button type="button"
-                                class="w-1/3 gap-2 flex justify-center items-center text-white bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 max-sm:px-2 py-2 max-sm:py-1 text-center inline-flex items-center max-sm:text-xs">
+                                class="col-span-2 gap-2 h-full flex justify-center items-center text-white bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 max-sm:px-2 py-2 max-sm:py-1 text-center inline-flex items-center max-sm:text-xs">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
                                     <path
@@ -460,7 +469,7 @@
                                 Hold All
                             </button>
                             <button type="button"
-                                class="w-1/3 gap-2 flex justify-center items-center text-white bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 max-sm:px-2 py-2 max-sm:py-1 text-center inline-flex items-center max-sm:text-xs">
+                                class="col-span-2 gap-2 h-full flex justify-center items-center text-white bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 max-sm:px-2 py-2 max-sm:py-1 text-center inline-flex items-center max-sm:text-xs">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-slash-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
@@ -1161,9 +1170,9 @@
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class="grid grid-cols-1 gap-6">
-                            <!--text fields-->
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!--text fields-->
+                        <div class="grid md:grid-cols-1 gap-6">
                             <div class="max-sm:w-full">
                                 <label for="r_amount" class="block mb-2 text-sm font-medium text-black ">Recieved
                                     Amount</label>
@@ -1213,103 +1222,107 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="grid col-span-2 gap-6">
-                            <!--table-->
-                            <div class="relative overflow-x-auto">
+                        <!--table-->
+                        <div class="grid md:col-span-2 gap-6">
+                            <div class="relative overflow-x-auto md:border-l md:pl-6">
                                 <table class="w-full text-sm text-left text-gray-500">
                                     <tbody>
-                                        <tr class="bg-gray-50">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
+                                        <tr class="bg-white max-md:border-t">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
                                                 Total Products
                                             </th>
-                                            <td class="px-6 py-4" colspan="2">
-                                                1
+                                            <td class=" py-4" colspan="2">
+                                                <p id="t_products"></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
+                                                Total Amount
+                                            </th>
+                                            <td class=" py-4">
+                                                <p id="t_amount"></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
+                                                Discount
+                                            </th>
+                                            <td class=" py-4">
+                                                <p id="dis"></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
+                                                Tax
+                                            </th>
+                                            <td class=" py-4">
+                                                <p id="_tax"></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
+                                                Tax Type
+                                            </th>
+                                            <td class=" py-4">
+                                                <p id="t_type"></p>
                                             </td>
                                         </tr>
                                         <tr class="bg-white border-b">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
-                                                Total Amount
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                Rs. 32500.00
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-gray-50">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
-                                                Discount
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                Rs. 0.00
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-white">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
-                                                Tax
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                Rs. 0.00
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-white">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
-                                                Tax Type
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                -
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-white">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
                                                 Grand Total
                                             </th>
-                                            <td class="px-6 py-4">
-                                                Rs. 32500.00
+                                            <td class=" py-4">
+                                                <p id="g_total"></p>
                                             </td>
                                         </tr>
                                         <tr class="bg-white">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
                                                 Commission
                                             </th>
-                                            <td class="px-6 py-4">
-                                                <input type="number" id="commission" data-input-counter data-input-counter-min="1"
+                                            <td class=" py-4">
+                                                <input type="number" id="commission" data-input-counter
+                                                    data-input-counter-min="1"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                     placeholder="Enter commission" required />
                                             </td>
                                         </tr>
                                         <tr class="bg-white">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
                                                 Warrenty Period
                                             </th>
-                                            <td class="px-6 py-4">
+                                            <td class=" py-4">
                                                 <input type="text" id="warrenty_period"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                     placeholder="Enter warrenty period" required />
                                             </td>
                                         </tr>
                                         <tr class="bg-white">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
                                                 Warrenty Card Number
                                             </th>
-                                            <td class="px-6 py-4">
-                                                <input type="number" id="warrenty_cnum" data-input-counter data-input-counter-min="1"
+                                            <td class=" py-4">
+                                                <input type="number" id="warrenty_cnum" data-input-counter
+                                                    data-input-counter-min="1"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                     placeholder="Enter warrenty card number" required />
                                             </td>
                                         </tr>
                                         <tr class="bg-white">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
                                                 With Guide
                                             </th>
-                                            <td class="px-6 py-4">
-                                                <input id="w_guide" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                            <td class=" py-4">
+                                                <input id="w_guide" type="checkbox" value=""
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                                             </td>
                                         </tr>
                                         <tr class="bg-white">
-                                            <th scope="row" class="px-6 py-3 text-xs text-gray-700 uppercase">
+                                            <th scope="row" class=" py-3 text-xs text-gray-700 uppercase">
                                                 Send SMS
                                             </th>
-                                            <td class="px-6 py-4">
-                                                <input id="sms" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                            <td class=" py-4">
+                                                <input id="sms" type="checkbox" value=""
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1373,10 +1386,76 @@
         priceCalc('quantity-input-3', 'item-3-price', 'item-3-single-price', 'item-3-discount', 'item-3-subtotal');
         priceCalc('quantity-input-4', 'item-4-price', 'item-4-single-price', 'item-4-discount', 'item-4-subtotal');
         priceCalc('quantity-input-5', 'item-5-price', 'item-5-single-price', 'item-5-discount', 'item-5-subtotal');
-        //priceCalc('quantity-input-6', 'item-6-price', 'item-6-single-price', 'item-6-discount', 'item-6-subtotal');
-        //priceCalc('quantity-input-7', 'item-7-price', 'item-7-single-price', 'item-7-discount', 'item-7-subtotal');
-        //priceCalc('quantity-input-8', 'item-8-price', 'item-8-single-price', 'item-8-discount', 'item-8-subtotal');
     }
+</script>
+<script>
+    function collectBillingData() {
+        // Get the table element by its ID
+        const table = document.getElementById("itemsTable");
+
+        // Get all rows inside the tbody
+        let rows = table.querySelectorAll("tbody tr");
+
+        // Iterate through each row
+        rows.forEach(row => {
+            // Initialize an array for the current row
+            let rowData = [];
+
+            // Get all relevant cells in the current row (excluding the button column)
+            let cells = row.querySelectorAll("td, th");
+
+            // Extract text or value from each cell
+            cells.forEach(cell => {
+                // Check if the cell contains an input element
+                let input = cell.querySelector("input");
+                if (input) {
+                    // Add the value of the input to the rowData array
+                    rowData.push(input.value);
+                } else if (cell.id && cell.id.includes("subtotal")) {
+                    // For subtotal, take the inner text
+                    rowData.push(cell.textContent.trim());
+                } else {
+                    // Add the text content of the cell to the rowData array
+                    rowData.push(cell.textContent.trim());
+                }
+            });
+
+            // Add the row data to the allData array
+            allData.push(rowData);
+        });
+
+        // Return or log the collected data
+        console.log(allData);
+        return allData;
+    }
+
+    function getDataForPaymentModal() {
+        allData = [];
+        let modalAllData = collectBillingData(); // Assuming this is your renamed calculatePayments method
+        let t_products = 0; // Total number of products
+        let t_amount = 0; // Total amount (sum of all prices)
+        let discount = 0; // Total discount
+        let g_total = 0; // Grand total (sum of all subtotals)
+
+        modalAllData.forEach(rowData => {
+            // Increment the product count
+            t_products++;
+
+            // Convert price, discount, and subtotal to numbers and add them to respective totals
+            t_amount += parseFloat(rowData[2]) || 0; // Price
+            discount += parseFloat(rowData[3]) || 0; // Discount
+            g_total += parseFloat(rowData[4]) || 0; // Subtotal
+        });
+
+        // Update the modal with the calculated values
+        document.getElementById("t_products").innerText = t_products.toString();
+        document.getElementById("t_amount").innerText = "Rs. " + t_amount.toFixed(2); // Show 2 decimal places
+        document.getElementById("dis").innerText = "Rs. " + discount.toFixed(2); // Show 2 decimal places
+        document.getElementById("_tax").innerText = "Rs. 0.00"; // not yet defined
+        document.getElementById("t_type").innerText = "-"; // not yet defined
+        document.getElementById("g_total").innerText = "Rs. " + g_total.toFixed(2); // Show 2 decimal places
+    }
+
 </script>
 
 </html>
