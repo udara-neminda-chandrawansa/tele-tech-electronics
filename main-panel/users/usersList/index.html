@@ -69,7 +69,7 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Permission List</p>
+                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Users List</p>
                         </div>
                     </li>
                 </ol>
@@ -80,7 +80,7 @@
             <label for="search_item">Search</label>
             <input type="text" id="search_item"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Enter permission name" required />
+                placeholder="Enter user name" required />
             <button onclick="searchItems();" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
         </div>
         <!--btn controls-->
@@ -112,11 +112,38 @@
                             <input id="filter_name" type="checkbox" checked class="hidden peer">
                             <label for="filter_name"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Permission Count');">
-                                Permission Count
+                                onclick="filterColumn('Username');">
+                                Username
                             </label>
                         </li>
                         <!-- Third Column -->
+                        <li>
+                            <input id="filter_email" type="checkbox" checked class="hidden peer">
+                            <label for="filter_email"
+                                class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
+                                onclick="filterColumn('Email');">
+                                Email
+                            </label>
+                        </li>
+                        <!-- Fourth Column -->
+                        <li>
+                            <input id="filter_role" type="checkbox" checked class="hidden peer">
+                            <label for="filter_role"
+                                class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
+                                onclick="filterColumn('Role');">
+                                Role
+                            </label>
+                        </li>
+                        <!-- Fifth Column -->
+                        <li>
+                            <input id="filter_since" type="checkbox" checked class="hidden peer">
+                            <label for="filter_since"
+                                class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
+                                onclick="filterColumn('Member Since');">
+                                Member Since
+                            </label>
+                        </li>
+                        <!-- Sixth Column -->
                         <li>
                             <input id="filter_manage" type="checkbox" checked class="hidden peer">
                             <label for="filter_manage"
@@ -147,9 +174,18 @@
                         <tr>
                             <th scope="col" class="px-6 py-3 rounded-tl-lg">
                                 #
-                                </td>
+                            </th>
                             <th scope="col" class="px-6 py-3">
-                                Permission Count
+                                Username
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Email
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Role
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Member Since
                             </th>
                             <th scope="col" class="px-6 py-3 rounded-tr-lg">
                                 Manage
@@ -162,7 +198,16 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                Permission 1
+                                Sample User
+                            </td>
+                            <td class="px-6 py-4">
+                                username@email.com
+                            </td>
+                            <td class="px-6 py-4">
+                                Sample Role
+                            </td>
+                            <td class="px-6 py-4">
+                                2000/10/01
                             </td>
                             <td class="px-6 py-4">
                                 <button class="p-3 border-2 rounded-lg">Edit</button>
@@ -174,7 +219,16 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                Permission 1
+                                Sample User
+                            </td>
+                            <td class="px-6 py-4">
+                                username@email.com
+                            </td>
+                            <td class="px-6 py-4">
+                                Sample Role
+                            </td>
+                            <td class="px-6 py-4">
+                                2000/10/01
                             </td>
                             <td class="px-6 py-4">
                                 <button class="p-3 border-2 rounded-lg">Edit</button>
@@ -186,7 +240,16 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                Permission 1
+                                Sample User
+                            </td>
+                            <td class="px-6 py-4">
+                                username@email.com
+                            </td>
+                            <td class="px-6 py-4">
+                                Sample Role
+                            </td>
+                            <td class="px-6 py-4">
+                                2000/10/01
                             </td>
                             <td class="px-6 py-4">
                                 <button class="p-3 border-2 rounded-lg">Edit</button>
@@ -198,7 +261,16 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                Permission 1
+                                Sample User
+                            </td>
+                            <td class="px-6 py-4">
+                                username@email.com
+                            </td>
+                            <td class="px-6 py-4">
+                                Sample Role
+                            </td>
+                            <td class="px-6 py-4">
+                                2000/10/01
                             </td>
                             <td class="px-6 py-4">
                                 <button class="p-3 border-2 rounded-lg">Edit</button>
@@ -210,7 +282,16 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                Permission 1
+                                Sample User
+                            </td>
+                            <td class="px-6 py-4">
+                                username@email.com
+                            </td>
+                            <td class="px-6 py-4">
+                                Sample Role
+                            </td>
+                            <td class="px-6 py-4">
+                                2000/10/01
                             </td>
                             <td class="px-6 py-4">
                                 <button class="p-3 border-2 rounded-lg">Edit</button>
@@ -222,7 +303,16 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                Permission 1
+                                Sample User
+                            </td>
+                            <td class="px-6 py-4">
+                                username@email.com
+                            </td>
+                            <td class="px-6 py-4">
+                                Sample Role
+                            </td>
+                            <td class="px-6 py-4">
+                                2000/10/01
                             </td>
                             <td class="px-6 py-4">
                                 <button class="p-3 border-2 rounded-lg">Edit</button>
@@ -234,43 +324,16 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                Permission 1
+                                Sample User
                             </td>
                             <td class="px-6 py-4">
-                                <button class="p-3 border-2 rounded-lg">Edit</button>
-                                <button class="p-3 border-2 bg-red-600 text-white rounded-lg">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-2 text-black">
-                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                1
+                                username@email.com
                             </td>
                             <td class="px-6 py-4">
-                                Permission 1
+                                Sample Role
                             </td>
                             <td class="px-6 py-4">
-                                <button class="p-3 border-2 rounded-lg">Edit</button>
-                                <button class="p-3 border-2 bg-red-600 text-white rounded-lg">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-2 text-black">
-                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                1
-                            </td>
-                            <td class="px-6 py-4">
-                                Permission 1
-                            </td>
-                            <td class="px-6 py-4">
-                                <button class="p-3 border-2 rounded-lg">Edit</button>
-                                <button class="p-3 border-2 bg-red-600 text-white rounded-lg">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-2 text-black">
-                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                1
-                            </td>
-                            <td class="px-6 py-4">
-                                Permission 1
+                                2000/10/01
                             </td>
                             <td class="px-6 py-4">
                                 <button class="p-3 border-2 rounded-lg">Edit</button>
