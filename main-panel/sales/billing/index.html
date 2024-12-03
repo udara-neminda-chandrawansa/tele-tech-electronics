@@ -423,9 +423,9 @@
                     <!--info-->
                     <span
                         class="flex gap-3 h-fit w-full justify-evenly py-3 border-[#00000096] border-t-2 border-b-2 max-md:text-sm max-sm:text-xs max-md:flex-col max-md:p-2">
-                        <p>Quantity: 0</p>
-                        <p>Total Amount: 0</p>
-                        <p>Grand Total: 0</p>
+                        <p>Quantity: <span id="wc_qty"></span></p>
+                        <p>Total Amount: <span id="wc_t_amount"></span></p>
+                        <p>Grand Total: <span id="wc_g_total"></span></p>
                     </span>
                     <!--txts + btns-->
                     <div class="flex items-center max-lg:flex-col">
@@ -1424,7 +1424,7 @@
             allData.push(rowData);
         });
 
-        // Return or log the collected data
+        // Return or log the collected data (ex: ['0: Name', '1: QTY', '2: Price of a Single Unit', '3: Discount Given', '4: Subtotal', ''])
         console.log(allData);
         return allData;
     }
@@ -1438,13 +1438,12 @@
         let g_total = 0; // Grand total (sum of all subtotals)
 
         modalAllData.forEach(rowData => {
-            // Increment the product count
-            t_products++;
-
             // Convert price, discount, and subtotal to numbers and add them to respective totals
-            t_amount += parseFloat(rowData[2]) || 0; // Price
+            // (ex: ['0: Name', '1: QTY', '2: Price of a Single Unit', '3: Discount Given', '4: Subtotal of a Row', ''])
+            t_products += parseFloat(rowData[1]) || 0;
+            t_amount += parseFloat(rowData[1] * rowData[2]) || 0; // Price
             discount += parseFloat(rowData[3]) || 0; // Discount
-            g_total += parseFloat(rowData[4]) || 0; // Subtotal
+            g_total += parseFloat(rowData[4]) || 0; // Grand Total
         });
 
         // Update the modal with the calculated values
@@ -1454,6 +1453,12 @@
         document.getElementById("_tax").innerText = "Rs. 0.00"; // not yet defined
         document.getElementById("t_type").innerText = "-"; // not yet defined
         document.getElementById("g_total").innerText = "Rs. " + g_total.toFixed(2); // Show 2 decimal places
+
+        // Update the white control panel with the calculated values
+        document.getElementById("wc_qty").innerText = t_products.toString();
+        document.getElementById("wc_t_amount").innerText = "Rs. " + t_amount.toFixed(2);
+        document.getElementById("wc_g_total").innerText = "Rs. " + g_total.toFixed(2);
+        document.getElementById("discount").value = discount.toFixed(2);
     }
 
 </script>
