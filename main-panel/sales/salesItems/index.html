@@ -241,7 +241,7 @@
                             <input id="filter_id" type="checkbox" checked class="hidden peer">
                             <label for="filter_id"
                                 class="w-full flex px-4 py-2 border-b border-gray-200 rounded-t-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('ID');">
+                                onclick="filterColumn('ID', 'salesListTable');">
                                 ID
                             </label>
                         </li>
@@ -250,7 +250,7 @@
                             <input id="filter_code" type="checkbox" checked class="hidden peer">
                             <label for="filter_code"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Code');">
+                                onclick="filterColumn('Code', 'salesListTable');">
                                 Code
                             </label>
                         </li>
@@ -259,7 +259,7 @@
                             <input id="filter_cname" type="checkbox" checked class="hidden peer">
                             <label for="filter_cname"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Customer Name');">
+                                onclick="filterColumn('Customer Name', 'salesListTable');">
                                 Customer Name
                             </label>
                         </li>
@@ -268,7 +268,7 @@
                             <input id="filter_total" type="checkbox" checked class="hidden peer">
                             <label for="filter_total"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Total (RS)');">
+                                onclick="filterColumn('Total (RS)', 'salesListTable');">
                                 Total (RS)
                             </label>
                         </li>
@@ -277,7 +277,7 @@
                             <input id="filter_ramount" type="checkbox" checked class="hidden peer">
                             <label for="filter_ramount"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Recieved Amount (RS)');">
+                                onclick="filterColumn('Recieved Amount (RS)', 'salesListTable');">
                                 Recieved Amount (RS)
                             </label>
                         </li>
@@ -286,7 +286,7 @@
                             <input id="filter_status" type="checkbox" checked class="hidden peer">
                             <label for="filter_status"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Status');">
+                                onclick="filterColumn('Status', 'salesListTable');">
                                 Status
                             </label>
                         </li>
@@ -295,7 +295,7 @@
                             <input id="filter_tpay" type="checkbox" checked class="hidden peer">
                             <label for="filter_tpay"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('To Pay (RS)');">
+                                onclick="filterColumn('To Pay (RS)', 'salesListTable');">
                                 To Pay (RS)
                             </label>
                         </li>
@@ -304,7 +304,7 @@
                             <input id="filter_dis" type="checkbox" checked class="hidden peer">
                             <label for="filter_dis"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Discount (RS)');">
+                                onclick="filterColumn('Discount (RS)', 'salesListTable');">
                                 Discount (RS)
                             </label>
                         </li>
@@ -313,7 +313,7 @@
                             <input id="filter_tax" type="checkbox" checked class="hidden peer">
                             <label for="filter_tax"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Tax (RS)');">
+                                onclick="filterColumn('Tax (RS)', 'salesListTable');">
                                 Tax (RS)
                             </label>
                         </li>
@@ -322,7 +322,7 @@
                             <input id="filter_created" type="checkbox" checked class="hidden peer">
                             <label for="filter_created"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Created At');">
+                                onclick="filterColumn('Created At', 'salesListTable');">
                                 Created At
                             </label>
                         </li>
@@ -331,7 +331,7 @@
                             <input id="filter_action" type="checkbox" checked class="hidden peer">
                             <label for="filter_action"
                                 class="w-full flex px-4 py-2 border-b border-gray-200 rounded-b-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Action');">
+                                onclick="filterColumn('Action', 'salesListTable');">
                                 Action
                             </label>
                         </li>
@@ -719,76 +719,4 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script src="../../../scripts/common.js"></script>
-<script>
-    function filterColumn(selectedColName) {
-        // Get the table and its header row
-        var table = document.getElementById("salesListTable");
-        var th = table.querySelectorAll("thead th");
-        var rows = table.querySelectorAll("tbody tr");
-
-        // Find the index of the selected column
-        var colIndex = -1;
-        th.forEach((header, index) => {
-            if (header.textContent.trim() === selectedColName) {
-                colIndex = index;
-            }
-        });
-
-        if (colIndex === -1) {
-            console.error("Column not found!");
-            return;
-        }
-
-        // Toggle visibility of the column
-        var isHidden = th[colIndex].style.display === "none";
-        th[colIndex].style.display = isHidden ? "" : "none";
-
-        rows.forEach((row) => {
-            var cells = row.querySelectorAll("td");
-            if (cells[colIndex]) {
-                cells[colIndex].style.display = isHidden ? "" : "none";
-            }
-        });
-    }
-
-    //
-    // ** for searching/selecting customeres
-    //
-
-    const customerOptions = document.getElementById('customer-options');
-    const customerSearch = document.getElementById('customer-search');
-
-    // Filter the dropdown list based on user input
-    function filterCustomer() {
-        const filter = customerSearch.value.toLowerCase();
-        const items = customerOptions.getElementsByTagName('li');
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter) ? '' : 'none';
-        }
-
-        // Show the dropdown if input has value, else hide it
-        customerOptions.style.display = customerSearch.value ? 'block' : 'none';
-    }
-
-    // Handle selecting a customer
-    function selectCustomer(customer) {
-        customerSearch.value = customer; // Update the input with the selected value
-        customerOptions.style.display = 'none'; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!customerSearch.contains(e.target) && !customerOptions.contains(e.target)) {
-            customerOptions.style.display = 'none';
-        }
-    });
-
-    // Show the dropdown on focus
-    customerSearch.addEventListener('focus', () => {
-        customerOptions.style.display = 'block';
-    });
-</script>
-
 </html>

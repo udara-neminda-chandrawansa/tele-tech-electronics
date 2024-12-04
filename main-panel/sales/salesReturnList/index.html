@@ -197,7 +197,7 @@
                             <input id="filter_date" type="checkbox" checked class="hidden peer">
                             <label for="filter_date"
                                 class="w-full flex px-4 py-2 border-b border-gray-200 rounded-t-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Sales Date');">
+                                onclick="filterColumn('Sales Date', 'salesRetTable');">
                                 Sales Date
                             </label>
                         </li>
@@ -206,7 +206,7 @@
                             <input id="filter_code" type="checkbox" checked class="hidden peer">
                             <label for="filter_code"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Sales Code');">
+                                onclick="filterColumn('Sales Code', 'salesRetTable');">
                                 Sales Code
                             </label>
                         </li>
@@ -215,7 +215,7 @@
                             <input id="filter_rcode" type="checkbox" checked class="hidden peer">
                             <label for="filter_rcode"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Return Code');">
+                                onclick="filterColumn('Return Code', 'salesRetTable');">
                                 Return Code
                             </label>
                         </li>
@@ -224,7 +224,7 @@
                             <input id="filter_sstatus" type="checkbox" checked class="hidden peer">
                             <label for="filter_sstatus"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Sales Status');">
+                                onclick="filterColumn('Sales Status', 'salesRetTable');">
                                 Sales Status
                             </label>
                         </li>
@@ -233,7 +233,7 @@
                             <input id="filter_ramount" type="checkbox" checked class="hidden peer">
                             <label for="filter_ramount"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Recieved Amount (RS)');">
+                                onclick="filterColumn('Recieved Amount (RS)', 'salesRetTable');">
                                 Recieved Amount (RS)
                             </label>
                         </li>
@@ -242,7 +242,7 @@
                             <input id="filter_rno" type="checkbox" checked class="hidden peer">
                             <label for="filter_rno"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Reference Number');">
+                                onclick="filterColumn('Reference Number', 'salesRetTable');">
                                 Reference Number
                             </label>
                         </li>
@@ -251,7 +251,7 @@
                             <input id="filter_cname" type="checkbox" checked class="hidden peer">
                             <label for="filter_cname"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Customer Name');">
+                                onclick="filterColumn('Customer Name', 'salesRetTable');">
                                 Customer Name
                             </label>
                         </li>
@@ -260,7 +260,7 @@
                             <input id="filter_total" type="checkbox" checked class="hidden peer">
                             <label for="filter_total"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Total');">
+                                onclick="filterColumn('Total', 'salesRetTable');">
                                 Total
                             </label>
                         </li>
@@ -269,7 +269,7 @@
                             <input id="filter_pam" type="checkbox" checked class="hidden peer">
                             <label for="filter_pam"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Paid Amount');">
+                                onclick="filterColumn('Paid Amount', 'salesRetTable');">
                                 Paid Amount
                             </label>
                         </li>
@@ -278,7 +278,7 @@
                             <input id="filter_due" type="checkbox" checked class="hidden peer">
                             <label for="filter_due"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Due');">
+                                onclick="filterColumn('Due', 'salesRetTable');">
                                 Due
                             </label>
                         </li>
@@ -287,7 +287,7 @@
                             <input id="filter_pstatus" type="checkbox" checked class="hidden peer">
                             <label for="filter_pstatus"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Payment Status');">
+                                onclick="filterColumn('Payment Status', 'salesRetTable');">
                                 Payment Status
                             </label>
                         </li>
@@ -296,7 +296,7 @@
                             <input id="filter_creator" type="checkbox" checked class="hidden peer">
                             <label for="filter_creator"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Created By');">
+                                onclick="filterColumn('Created By', 'salesRetTable');">
                                 Created By
                             </label>
                         </li>
@@ -305,7 +305,7 @@
                             <input id="filter_action" type="checkbox" checked class="hidden peer">
                             <label for="filter_action"
                                 class="w-full flex px-4 py-2 border-b border-gray-200 rounded-b-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Action');">
+                                onclick="filterColumn('Action', 'salesRetTable');">
                                 Action
                             </label>
                         </li>
@@ -713,37 +713,6 @@
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script src="../../../scripts/common.js"></script>
 <script>
-    function filterColumn(selectedColName) {
-        // Get the table and its header row
-        var table = document.getElementById("salesRetTable");
-        var th = table.querySelectorAll("thead th");
-        var rows = table.querySelectorAll("tbody tr");
-
-        // Find the index of the selected column
-        var colIndex = -1;
-        th.forEach((header, index) => {
-            if (header.textContent.trim() === selectedColName) {
-                colIndex = index;
-            }
-        });
-
-        if (colIndex === -1) {
-            console.error("Column not found!");
-            return;
-        }
-
-        // Toggle visibility of the column
-        var isHidden = th[colIndex].style.display === "none";
-        th[colIndex].style.display = isHidden ? "" : "none";
-
-        rows.forEach((row) => {
-            var cells = row.querySelectorAll("td");
-            if (cells[colIndex]) {
-                cells[colIndex].style.display = isHidden ? "" : "none";
-            }
-        });
-    }
-
     //
     // ** for searching/selecting customeres
     //

@@ -133,3 +133,35 @@ function searchItems(searchInputID, tableID, colNo) {
         }
     }
 }
+
+// for filtering columns
+function filterColumn(selectedColName, tableID) {
+    // Get the table and its header row
+    var table = document.getElementById(tableID);
+    var th = table.querySelectorAll("thead th");
+    var rows = table.querySelectorAll("tbody tr");
+
+    // Find the index of the selected column
+    var colIndex = -1;
+    th.forEach((header, index) => {
+        if (header.textContent.trim() === selectedColName) {
+            colIndex = index;
+        }
+    });
+
+    if (colIndex === -1) {
+        console.error("Column not found!");
+        return;
+    }
+
+    // Toggle visibility of the column
+    var isHidden = th[colIndex].style.display === "none";
+    th[colIndex].style.display = isHidden ? "" : "none";
+
+    rows.forEach((row) => {
+        var cells = row.querySelectorAll("td");
+        if (cells[colIndex]) {
+            cells[colIndex].style.display = isHidden ? "" : "none";
+        }
+    });
+}

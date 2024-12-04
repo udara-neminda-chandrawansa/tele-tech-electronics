@@ -107,7 +107,7 @@
                             <input id="filter_hash" type="checkbox" checked class="hidden peer">
                             <label for="filter_hash"
                                 class="w-full flex px-4 py-2 border-b border-gray-200 rounded-t-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('#');">
+                                onclick="filterColumn('#', 'suppliersTable');">
                                 #
                             </label>
                         </li>
@@ -116,7 +116,7 @@
                             <input id="filter_code" type="checkbox" checked class="hidden peer">
                             <label for="filter_code"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Supplier Code');">
+                                onclick="filterColumn('Supplier Code', 'suppliersTable');">
                                 Supplier Code
                             </label>
                         </li>
@@ -125,7 +125,7 @@
                             <input id="filter_name" type="checkbox" checked class="hidden peer">
                             <label for="filter_name"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Supplier Name');">
+                                onclick="filterColumn('Supplier Name', 'suppliersTable');">
                                 Supplier Name
                             </label>
                         </li>
@@ -134,7 +134,7 @@
                             <input id="filter_mno" type="checkbox" checked class="hidden peer">
                             <label for="filter_mno"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Mobile Number');">
+                                onclick="filterColumn('Mobile Number', 'suppliersTable');">
                                 Mobile Number
                             </label>
                         </li>
@@ -143,7 +143,7 @@
                             <input id="filter_email" type="checkbox" checked class="hidden peer">
                             <label for="filter_email"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Email Address');">
+                                onclick="filterColumn('Email Address', 'suppliersTable');">
                                 Email Address
                             </label>
                         </li>
@@ -152,7 +152,7 @@
                             <input id="filter_addr" type="checkbox" checked class="hidden peer">
                             <label for="filter_addr"
                                 class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Address');">
+                                onclick="filterColumn('Address', 'suppliersTable');">
                                 Address
                             </label>
                         </li>
@@ -161,7 +161,7 @@
                             <input id="filter_manage" type="checkbox" checked class="hidden peer">
                             <label for="filter_manage"
                                 class="flex w-full px-4 py-2 rounded-b-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Manage');">
+                                onclick="filterColumn('Manage', 'suppliersTable');">
                                 Manage
                             </label>
                         </li>
@@ -414,37 +414,5 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script src="../../../scripts/common.js"></script>
-<script>
-    function filterColumn(selectedColName) {
-        // Get the table and its header row
-        var table = document.getElementById("suppliersTable");
-        var th = table.querySelectorAll("thead th");
-        var rows = table.querySelectorAll("tbody tr");
-
-        // Find the index of the selected column
-        var colIndex = -1;
-        th.forEach((header, index) => {
-            if (header.textContent.trim() === selectedColName) {
-                colIndex = index;
-            }
-        });
-
-        if (colIndex === -1) {
-            console.error("Column not found!");
-            return;
-        }
-
-        // Toggle visibility of the column
-        var isHidden = th[colIndex].style.display === "none";
-        th[colIndex].style.display = isHidden ? "" : "none";
-
-        rows.forEach((row) => {
-            var cells = row.querySelectorAll("td");
-            if (cells[colIndex]) {
-                cells[colIndex].style.display = isHidden ? "" : "none";
-            }
-        });
-    }
-</script>
 
 </html>
