@@ -145,52 +145,32 @@
                         <div>
                             <label for="customer-search"
                                 class="block mb-2 text-sm font-medium text-black ">Customer</label>
-                            <!-- Dropdown wrapper -->
-                            <div class="relative">
-                                <!-- Search input -->
-                                <input id="customer-search" type="text"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                    placeholder="Select customer" oninput="filterCustomer()" />
-                                <!-- Dropdown options -->
-                                <ul id="customer-options"
-                                    class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCustomer('Customer 1')">Customer 1</li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCustomer('Customer 2')">
-                                        Customer 2</li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCustomer('Customer 3')">
-                                        Customer 3</li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCustomer('Customer 4')">Customer 4</li>
-                                </ul>
+                            <!--custom combobox-->
+                            <div class="custom-select w-full">
+                                <select id="p_code" name="p_code"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                    <option value="">Select customer</option>
+                                    <option value="Customer 1">Customer 1</option>
+                                    <option value="Customer 2">Customer 2</option>
+                                    <option value="Customer 3">Customer 3</option>
+                                    <option value="Customer 4">Customer 4</option>
+                                </select>
                             </div>
                         </div>
                         <!--select user-->
                         <div>
                             <label for="creator-search" class="block mb-2 text-sm font-medium text-black ">Created
                                 By</label>
-                            <!-- Dropdown wrapper -->
-                            <div class="relative">
-                                <!-- Search input -->
-                                <input id="creator-search" type="text"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                    placeholder="Select creator" oninput="filterCreators()" />
-                                <!-- Dropdown options -->
-                                <ul id="creator-options"
-                                    class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCreator('User 1')">User 1</li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCreator('User 2')">
-                                        User 2</li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCreator('User 3')">
-                                        User 3</li>
-                                    <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                        onclick="selectCreator('User 4')">User 4</li>
-                                </ul>
+                            <!--custom combobox-->
+                            <div class="custom-select w-full">
+                                <select id="p_code" name="p_code"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                    <option value="">Select user</option>
+                                    <option value="User 1">User 1</option>
+                                    <option value="User 2">User 2</option>
+                                    <option value="User 3">User 3</option>
+                                    <option value="User 4">User 4</option>
+                                </select>
                             </div>
                         </div>
                         <!--select from date-->
@@ -239,7 +219,7 @@
             <input type="text" id="search_sale"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Enter sale code" required />
-            <button onclick="searchSales();" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
+            <button onclick="searchItems('search_sale', 'salesListTable', 1);" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
         </div>
         <!--btn controls-->
         <div class="px-12 max-sm:px-6 py-5 flex w-full items-center max-md:flex-col justify-between gap-3">
@@ -738,28 +718,8 @@
     </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+<script src="../../../scripts/common.js"></script>
 <script>
-    function searchSales() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("search_sale");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("salesListTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
     function filterColumn(selectedColName) {
         // Get the table and its header row
         var table = document.getElementById("salesListTable");
@@ -829,46 +789,6 @@
     customerSearch.addEventListener('focus', () => {
         customerOptions.style.display = 'block';
     });
-
-    //
-    // ** for searching/selecting creatores
-    //
-
-    const creatorOptions = document.getElementById('creator-options');
-    const creatorSearch = document.getElementById('creator-search');
-
-    // Filter the dropdown list based on user input
-    function filterCreators() {
-        const filter = creatorSearch.value.toLowerCase();
-        const items = creatorOptions.getElementsByTagName('li');
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter) ? '' : 'none';
-        }
-
-        // Show the dropdown if input has value, else hide it
-        creatorOptions.style.display = creatorSearch.value ? 'block' : 'none';
-    }
-
-    // Handle selecting a creator
-    function selectCreator(creator) {
-        creatorSearch.value = creator; // Update the input with the selected value
-        creatorOptions.style.display = 'none'; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!creatorSearch.contains(e.target) && !creatorOptions.contains(e.target)) {
-            creatorOptions.style.display = 'none';
-        }
-    });
-
-    // Show the dropdown on focus
-    creatorSearch.addEventListener('focus', () => {
-        creatorOptions.style.display = 'block';
-    });
-
 </script>
 
 </html>

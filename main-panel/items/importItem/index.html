@@ -345,58 +345,5 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-<script>
-    function searchItems() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("search_imp");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("impTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-    function filterColumn(selectedColName) {
-        // Get the table and its header row
-        var table = document.getElementById("impTable");
-        var th = table.querySelectorAll("thead th");
-        var rows = table.querySelectorAll("tbody tr");
-
-        // Find the index of the selected column
-        var colIndex = -1;
-        th.forEach((header, index) => {
-            if (header.textContent.trim() === selectedColName) {
-                colIndex = index;
-            }
-        });
-
-        if (colIndex === -1) {
-            console.error("Column not found!");
-            return;
-        }
-
-        // Toggle visibility of the column
-        var isHidden = th[colIndex].style.display === "none";
-        th[colIndex].style.display = isHidden ? "" : "none";
-
-        rows.forEach((row) => {
-            var cells = row.querySelectorAll("td");
-            if (cells[colIndex]) {
-                cells[colIndex].style.display = isHidden ? "" : "none";
-            }
-        });
-    }
-</script>
 
 </html>

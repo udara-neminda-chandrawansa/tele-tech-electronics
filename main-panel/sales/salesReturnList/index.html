@@ -175,7 +175,7 @@
             <input type="text" id="search_sale_ret"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Enter sale code" required />
-            <button onclick="searchSalesRet();" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
+            <button onclick="searchItems('search_sale_ret', 'salesRetTable', 1);" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
         </div>
         <!--btn controls-->
         <div class="px-12 max-sm:px-6 py-5 flex w-full items-center max-md:flex-col justify-between gap-3">
@@ -711,28 +711,8 @@
     </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+<script src="../../../scripts/common.js"></script>
 <script>
-    function searchSalesRet() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("search_sale_ret");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("salesRetTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
     function filterColumn(selectedColName) {
         // Get the table and its header row
         var table = document.getElementById("salesRetTable");
