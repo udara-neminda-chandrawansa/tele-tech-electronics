@@ -1435,6 +1435,7 @@
         let t_products = 0; // Total number of products
         let t_amount = 0; // Total amount (sum of all prices)
         let discount = 0; // Total discount
+        let tax = document.getElementById("tax").value; // Tax input in the white control panel
         let g_total = 0; // Grand total (sum of all subtotals)
 
         modalAllData.forEach(rowData => {
@@ -1443,14 +1444,16 @@
             t_products += parseFloat(rowData[1]) || 0;
             t_amount += parseFloat(rowData[1] * rowData[2]) || 0; // Price
             discount += parseFloat(rowData[3]) || 0; // Discount
-            g_total += parseFloat(rowData[4]) || 0; // Grand Total
+            g_total += parseFloat(rowData[4]) || 0; // Grand Total without tax
         });
+
+        g_total += parseFloat(tax); // Grand Total with tax
 
         // Update the modal with the calculated values
         document.getElementById("t_products").innerText = t_products.toString();
         document.getElementById("t_amount").innerText = "Rs. " + t_amount.toFixed(2); // Show 2 decimal places
         document.getElementById("dis").innerText = "Rs. " + discount.toFixed(2); // Show 2 decimal places
-        document.getElementById("_tax").innerText = "Rs. 0.00"; // not yet defined
+        document.getElementById("_tax").innerText = "Rs. " + tax; // tax from white control panel
         document.getElementById("t_type").innerText = "-"; // not yet defined
         document.getElementById("g_total").innerText = "Rs. " + g_total.toFixed(2); // Show 2 decimal places
 
