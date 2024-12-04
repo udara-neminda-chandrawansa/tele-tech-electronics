@@ -82,52 +82,32 @@
                     <!--select customer-->
                     <div>
                         <label for="customer-search" class="block mb-2 text-sm font-medium text-black ">Customer</label>
-                        <!-- Dropdown wrapper -->
-                        <div class="relative">
-                            <!-- Search input -->
-                            <input id="customer-search" type="text"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                placeholder="Select customer" oninput="filterCustomer()" />
-                            <!-- Dropdown options -->
-                            <ul id="customer-options"
-                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCustomer('Customer 1')">Customer 1</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCustomer('Customer 2')">
-                                    Customer 2</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCustomer('Customer 3')">
-                                    Customer 3</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCustomer('Customer 4')">Customer 4</li>
-                            </ul>
+                        <!--custom combobox-->
+                        <div class="custom-select w-full">
+                            <select id="customer" name="customer"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                <option value="">Select Customer</option>
+                                <option value="Customer 1">Customer 1</option>
+                                <option value="Customer 2">Customer 2</option>
+                                <option value="Customer 3">Customer 3</option>
+                                <option value="Customer 4">Customer 4</option>
+                            </select>
                         </div>
                     </div>
                     <!--select user-->
                     <div>
                         <label for="creator-search" class="block mb-2 text-sm font-medium text-black ">Created
                             By</label>
-                        <!-- Dropdown wrapper -->
-                        <div class="relative">
-                            <!-- Search input -->
-                            <input id="creator-search" type="text"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                placeholder="Select creator" oninput="filterCreators()" />
-                            <!-- Dropdown options -->
-                            <ul id="creator-options"
-                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCreator('User 1')">User 1</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCreator('User 2')">
-                                    User 2</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCreator('User 3')">
-                                    User 3</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectCreator('User 4')">User 4</li>
-                            </ul>
+                        <!--custom combobox-->
+                        <div class="custom-select w-full">
+                            <select id="creator" name="creator"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                <option value="">Select Creator</option>
+                                <option value="Creator 1">Creator 1</option>
+                                <option value="Creator 2">Creator 2</option>
+                                <option value="Creator 3">Creator 3</option>
+                                <option value="Creator 4">Creator 4</option>
+                            </select>
                         </div>
                     </div>
                     <!--select from date-->
@@ -175,7 +155,8 @@
             <input type="text" id="search_sale_ret"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Enter sale code" required />
-            <button onclick="searchItems('search_sale_ret', 'salesRetTable', 1);" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
+            <button onclick="searchItems('search_sale_ret', 'salesRetTable', 1);"
+                class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
         </div>
         <!--btn controls-->
         <div class="px-12 max-sm:px-6 py-5 flex w-full items-center max-md:flex-col justify-between gap-3">

@@ -86,24 +86,16 @@
                     </div>
                     <div>
                         <label for="supplier-search" class="block mb-2 text-sm font-medium text-black">Supplier</label>
-                        <!-- Dropdown wrapper -->
-                        <div class="relative">
-                            <!-- Search input -->
-                            <input id="supplier-search" type="text"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                placeholder="Select supplier" oninput="filterSuppliers()" />
-                            <!-- Dropdown options -->
-                            <ul id="supplier-options"
-                                class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectSupplier('Supplier 1')">Supplier 1</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectSupplier('Supplier 2')">Supplier 2</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectSupplier('Supplier 3')">Supplier 3</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-blue-100"
-                                    onclick="selectSupplier('Supplier 4')">Supplier 4</li>
-                            </ul>
+                        <!--custom combobox-->
+                        <div class="custom-select w-full">
+                            <select id="search" name="city"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                <option value="">Search Supplier</option>
+                                <option value="Supplier 1">Supplier 1</option>
+                                <option value="Supplier 2">Supplier 2</option>
+                                <option value="Supplier 3">Supplier 3</option>
+                                <option value="Supplier 4">Supplier 4</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -203,5 +195,5 @@
         supplierOptions.style.display = 'block';
     });
 </script>
-
+<script src="../../../scripts/common.js"></script>
 </html>

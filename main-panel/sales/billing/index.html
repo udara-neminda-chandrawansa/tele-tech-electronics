@@ -486,28 +486,16 @@
             <div class="flex flex-col w-1/3 border-2 rounded-lg max-md:w-full max-xl:w-full">
                 <!--Search bar-->
                 <span class="h-1/6 p-3 bg-[#0000000F] border-b-2 2xl:h-[5%]">
-                    <!-- Dropdown wrapper -->
-                    <div class="relative">
-                        <!-- Search input -->
-                        <input id="item-search" type="text"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="Search Items" oninput="filterItems()" />
-                        <!-- Dropdown options -->
-                        <ul id="item-options"
-                            class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-48 overflow-y-auto hidden">
-                            <li class="px-4 py-2 cursor-pointer hover:bg-blue-100" onclick="selectItem('Item 1')">
-                                Item 1
-                            </li>
-                            <li class="px-4 py-2 cursor-pointer hover:bg-blue-100" onclick="selectItem('Item 2')">
-                                Item 2
-                            </li>
-                            <li class="px-4 py-2 cursor-pointer hover:bg-blue-100" onclick="selectItem('Item 3')">
-                                Item 3
-                            </li>
-                            <li class="px-4 py-2 cursor-pointer hover:bg-blue-100" onclick="selectItem('Item 4')">
-                                Item 4
-                            </li>
-                        </ul>
+                    <!--custom combobox-->
+                    <div class="custom-select w-full">
+                        <select id="search" name="city"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                            <option value="">Search Item</option>
+                            <option value="Item 1">Item 1</option>
+                            <option value="Item 2">Item 2</option>
+                            <option value="Item 3">Item 3</option>
+                            <option value="Item 4">Item 4</option>
+                        </select>
                     </div>
                 </span>
                 <!--sidebar products cards-->
