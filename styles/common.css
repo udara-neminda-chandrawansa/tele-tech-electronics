@@ -28,6 +28,12 @@
     color: #718096;
 }
 
+.custom-select-trigger::after{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
 .custom-select-dropdown {
     display: none;
     position: absolute;
