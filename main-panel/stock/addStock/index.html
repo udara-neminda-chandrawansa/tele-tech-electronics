@@ -58,7 +58,7 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Items</p>
+                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Stock</p>
                         </div>
                     </li>
                     <li aria-current="page">
@@ -68,7 +68,7 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Add Items</p>
+                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Add Stock</p>
                         </div>
                     </li>
                 </ol>
@@ -76,76 +76,40 @@
         </div>
         <!--main panel-->
         <div class="p-6">
-            <div class="flex flex-col border-2 h-full rounded-lg p-6">
-                <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <div class="flex flex-grow flex-col border-2 h-full rounded-lg p-6">
+                <div class="grid gap-6 mb-6 md:grid-cols-1">
                     <div>
-                        <label for="item_name" class="block mb-2 text-sm font-medium text-black ">Item name</label>
+                        <label for="item_name" class="block mb-2 text-sm font-medium text-black ">Item Name</label>
                         <input type="text" id="item_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Your Item name" required />
+                            placeholder="Enter item name" required />
                     </div>
+                </div>
+                <div class="grid mb-6 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="supplier-search" class="block mb-2 text-sm font-medium text-black">Supplier</label>
+                        <label for="branch" class="block mb-2 text-sm font-medium text-gray-900">Branch</label>
                         <!--custom combobox-->
                         <div class="custom-select w-full">
-                            <select id="supplier" name="supplier" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
-                                <option value="">Select supplier</option>
-                                <option value="Supplier 1">Supplier 1</option>
-                                <option value="Supplier 2">Supplier 2</option>
-                                <option value="Supplier 3">Supplier 3</option>
-                                <option value="Supplier 4">Supplier 4</option>
+                            <select id="branch" name="branch"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hidden">
+                                <option value="">Select branch</option>
+                                <option value="Branch 1">Branch 1</option>
+                                <option value="Branch 2">Branch 2</option>
+                                <option value="Branch 3">Branch 3</option>
+                                <option value="Branch 4">Branch 4</option>
                             </select>
                         </div>
                     </div>
-                </div>
-                <div class="grid gap-6 mb-6 md:grid-cols-4">
                     <div>
-                        <label for="quantity" class="block mb-2 text-sm font-medium text-black ">Quantity</label>
-                        <input type="text" id="quantity"
+                        <label for="qty" class="block mb-2 text-sm font-medium text-black ">Quantity</label>
+                        <input type="number" id="qty"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Enter Qty" required />
-                    </div>
-                    <div>
-                        <label for="price" class="block mb-2 text-sm font-medium text-black ">Purchase Price</label>
-                        <input type="tel" id="price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Enter price" required />
-                    </div>
-                    <div>
-                        <label for="retail_price" class="block mb-2 text-sm font-medium text-black ">Retail
-                            price</label>
-                        <input type="text" id="retail_price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Enter retail price" required />
-                    </div>
-                    <div>
-                        <label for="wholesale_price" class="block mb-2 text-sm font-medium text-black ">Wholesale
-                            Price</label>
-                        <input type="tel" id="wholesale_price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Enter wholesale price" required />
+                            placeholder="Enter quantity" required />
                     </div>
                 </div>
-                <div class="flex items-center justify-center w-full">
-                    <label for="dropzone-file"
-                        class="flex flex-col items-center justify-center w-full flex-grow border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
-                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg class="w-8 h-8 mb-4 text-gray-500 " aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                            </svg>
-                            <p class="mb-2 text-sm text-gray-500 "><span class="font-semibold">Add image </span>here</p>
-                            <p class="text-xs text-gray-500 ">SVG, PNG, JPG or GIF (MAX. 800x400px)
-                            </p>
-                        </div>
-                        <input id="dropzone-file" type="file" class="hidden" />
-                    </label>
-                </div>
-                <div class="flex justify-center items-center w-full gap-4 p-4">
-                    <button class="py-3 px-6 bg-[#029ED9] text-white rounded-lg">Save</button>
-                    <button class="py-3 px-6 bg-black text-white rounded-lg">Reset</button>
+                <div class="flex justify-center items-center w-full gap-4 max-sm:flex-col">
+                    <button
+                        class="py-3 px-6 bg-[#029ED9] text-white rounded-lg max-sm:py-1 max-sm:px-3 max-sm:w-full">Add</button>
                 </div>
             </div>
         </div>
@@ -155,8 +119,9 @@
             <p>Copyright</p>
             <p>Powered By <strong>Silicon Radon Networks (PVT) Ltd.</strong> All rights reserved.</p>
         </footer>
-    </div>
 
+    </div>
 </body>
 <script src="../../../scripts/common.js"></script>
+
 </html>
