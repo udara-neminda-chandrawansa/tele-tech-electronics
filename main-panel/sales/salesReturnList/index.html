@@ -303,7 +303,7 @@
             </span>
         </div>
         <!--table-->
-        <div class="px-12 max-sm:px-6 py-5 overflow-y-auto bg-white flex flex-col">
+        <div class="px-12 max-sm:px-6 max-lg:min-h-full py-5 overflow-y-auto bg-white flex flex-col">
             <span></span>
             <!--table from flowbite-->
             <div class="relative h-[500px] overflow-x-auto">
@@ -693,85 +693,5 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script src="../../../scripts/common.js"></script>
-<script>
-    //
-    // ** for searching/selecting customeres
-    //
-
-    const customerOptions = document.getElementById('customer-options');
-    const customerSearch = document.getElementById('customer-search');
-
-    // Filter the dropdown list based on user input
-    function filterCustomer() {
-        const filter = customerSearch.value.toLowerCase();
-        const items = customerOptions.getElementsByTagName('li');
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter) ? '' : 'none';
-        }
-
-        // Show the dropdown if input has value, else hide it
-        customerOptions.style.display = customerSearch.value ? 'block' : 'none';
-    }
-
-    // Handle selecting a customer
-    function selectCustomer(customer) {
-        customerSearch.value = customer; // Update the input with the selected value
-        customerOptions.style.display = 'none'; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!customerSearch.contains(e.target) && !customerOptions.contains(e.target)) {
-            customerOptions.style.display = 'none';
-        }
-    });
-
-    // Show the dropdown on focus
-    customerSearch.addEventListener('focus', () => {
-        customerOptions.style.display = 'block';
-    });
-
-    //
-    // ** for searching/selecting creatores
-    //
-
-    const creatorOptions = document.getElementById('creator-options');
-    const creatorSearch = document.getElementById('creator-search');
-
-    // Filter the dropdown list based on user input
-    function filterCreators() {
-        const filter = creatorSearch.value.toLowerCase();
-        const items = creatorOptions.getElementsByTagName('li');
-
-        for (let i = 0; i < items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            items[i].style.display = text.toLowerCase().includes(filter) ? '' : 'none';
-        }
-
-        // Show the dropdown if input has value, else hide it
-        creatorOptions.style.display = creatorSearch.value ? 'block' : 'none';
-    }
-
-    // Handle selecting a creator
-    function selectCreator(creator) {
-        creatorSearch.value = creator; // Update the input with the selected value
-        creatorOptions.style.display = 'none'; // Hide the dropdown
-    }
-
-    // Close the dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!creatorSearch.contains(e.target) && !creatorOptions.contains(e.target)) {
-            creatorOptions.style.display = 'none';
-        }
-    });
-
-    // Show the dropdown on focus
-    creatorSearch.addEventListener('focus', () => {
-        creatorOptions.style.display = 'block';
-    });
-
-</script>
 
 </html>
