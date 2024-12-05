@@ -69,75 +69,32 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Stock Update Records</p>
+                            <p class="ms-1 text-sm font-medium text-gray-700 md:ms-2">Stock Counting</p>
                         </div>
                     </li>
                 </ol>
             </nav>
         </div>
-        <!--search-->
-        <div class="px-12 max-sm:px-6 py-5 flex w-1/2 max-md:w-full items-center gap-3">
-            <label for="search_item">Search</label>
-            <input type="text" id="search_item"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Enter item name" required />
-            <button onclick="searchItems('search_item', 'itemsTable', 2);" class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Search</button>
-        </div>
+
         <!--btn controls-->
         <div class="px-12 max-sm:px-6 py-5 flex w-full items-center max-md:flex-col justify-between gap-3">
-            <span class="w-fit max-md:w-full max-md:justify-center flex gap-3 max-sm:gap-1 max-[350px]:scale-75">
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">Copy</button>
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">CSV</button>
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">Excel</button>
-                <button class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">PDF</button>
-                <button data-popover-target="popover-click" data-popover-trigger="click" data-popover-placement="bottom"
-                    type="button" class="py-3 px-6 max-sm:px-3 max-sm:py-1 bg-black text-white rounded-lg">
-                    Column Visibility
-                </button>
-                <div data-popover id="popover-click" role="tooltip"
-                    class="absolute z-10 invisible inline-block w-fit text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
-                    <ul
-                        class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-col">
-                        <!-- First Column -->
-                        <li>
-                            <input id="filter_hash" type="checkbox" checked class="hidden peer">
-                            <label for="filter_hash"
-                                class="w-full flex px-4 py-2 border-b border-gray-200 rounded-t-lg select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('#', 'itemsTable');">
-                                #
-                            </label>
-                        </li>
-                        <!-- Second Column -->
-                        <li>
-                            <input id="filter_time" type="checkbox" checked class="hidden peer">
-                            <label for="filter_time"
-                                class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Time', 'itemsTable');">
-                                Time
-                            </label>
-                        </li>
-                        <!-- Third Column -->
-                        <li>
-                            <input id="filter_item" type="checkbox" checked class="hidden peer">
-                            <label for="filter_item"
-                                class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Item', 'itemsTable');">
-                                Item
-                            </label>
-                        </li>
-                        <!-- Fourth Column -->
-                        <li>
-                            <input id="filter_a_stock" type="checkbox" checked class="hidden peer">
-                            <label for="filter_a_stock"
-                                class="flex w-full px-4 py-2 border-b border-gray-200 select-none peer-checked:bg-blue-300"
-                                onclick="filterColumn('Add Stock', 'itemsTable');">
-                                Add Stock
-                            </label>
-                        </li>
-                    </ul>
-                    <div data-popper-arrow></div>
+            <!--search-->
+            <div class="flex w-1/2 max-md:w-full items-center">
+                <div class="flex">
+                    <span
+                        class="inline-flex items-center px-3 text-sm text-gray-900 bg-[#47891E] border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
+                        <svg width="45" height="29" viewBox="0 0 45 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.958496 28.2087V0.791992H4.87516V28.2087H0.958496ZM6.8335 28.2087V0.791992H10.7502V28.2087H6.8335ZM12.7085 28.2087V0.791992H14.6668V28.2087H12.7085ZM18.5835 28.2087V0.791992H22.5002V28.2087H18.5835ZM24.4585 28.2087V0.791992H30.3335V28.2087H24.4585ZM32.2918 28.2087V0.791992H34.2502V28.2087H32.2918ZM38.1668 28.2087V0.791992H44.0418V28.2087H38.1668Z"
+                                fill="white" />
+                        </svg>
+                    </span>
+                    <input type="text" id="barcode"
+                        class="rounded-none rounded-e-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 mr-6"
+                        placeholder="Barcode">
                 </div>
-            </span>
+                <button class="py-3 px-6 bg-[#47891E] text-white rounded-lg">Submit</button>
+            </div>
             <span class="w-fit max-md:w-full items-center flex gap-3">
                 Show
                 <input type="text" id="col_num"
@@ -158,13 +115,10 @@
                                 #
                                 </td>
                             <th scope="col" class="px-6 py-3">
-                                Time
+                                Item Name
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Item
-                            </th>
-                            <th scope="col" class="px-6 py-3 rounded-tr-lg">
-                                Add Stock
+                                Barcode
                             </th>
                         </tr>
                     </thead>
@@ -174,13 +128,10 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                20:00 PM
+                                Item 1
                             </td>
                             <td class="px-6 py-4">
-                                Sample Item
-                            </td>
-                            <td class="px-6 py-4">
-                                1000
+                                <button class="bg-gray-300 px-6 py-2 rounded-lg">Save Counted Items</button>
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black">
@@ -188,13 +139,10 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                20:00 PM
+                                Item 1
                             </td>
                             <td class="px-6 py-4">
-                                Sample Item
-                            </td>
-                            <td class="px-6 py-4">
-                                1000
+                                
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black">
@@ -202,13 +150,10 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                20:00 PM
+                                Item 1
                             </td>
                             <td class="px-6 py-4">
-                                Sample Item
-                            </td>
-                            <td class="px-6 py-4">
-                                1000
+                                
                             </td>
                         </tr>
                         <tr class="bg-white border-2 text-black">
@@ -216,24 +161,31 @@
                                 1
                             </td>
                             <td class="px-6 py-4">
-                                20:00 PM
+                                Item 1
                             </td>
                             <td class="px-6 py-4">
-                                Sample Item
+                                
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-2 text-black">
+                            <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                                1
                             </td>
                             <td class="px-6 py-4">
-                                1000
+                                Item 1
+                            </td>
+                            <td class="px-6 py-4">
+                                
                             </td>
                         </tr>
                         <tr class="h-6"></tr>
                         <tr class="bg-[#47891E] border-2 text-white">
-                            <td></td>
                             <td class="px-6 py-4">
                                 Total Added Stock
                             </td>
-                            <td></td>
+                            <td class="px-6 py-4">0</td>
                             <td class="px-6 py-4">
-                                4000
+                                <button class="bg-gray-300 px-6 py-2 rounded-lg bg-white text-black">Save Counted Items</button>
                             </td>
                         </tr>
                     </tbody>
